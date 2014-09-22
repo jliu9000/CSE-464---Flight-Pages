@@ -27,29 +27,28 @@
 	
 <div class='main'>
 
-	
 	<p class="PageTitle">View and Book</p>
 	
 	
-	<div id="RecordDetails">
-		<p>Flight ID: <%=r.getID() %></p>
-		<p>Flight Date: <%=r.getDateOfTravel() %></p>
-		<p>Departure Time: <%=r.getDepartureTime() %></p>
-		<p>Departure Location: <%=r.getSource() %></p>
-		<p>Arrival Time: <%=r.getArrivalTime() %></p>
-		<p>Arrival Location: <%=r.getDestination() %></p>
-		<p>Number of Stops: <%=r.getNumberOfStops() %></p>
-		<p>Class: <%=r.getFlightClass() %></p>
-		<p>Cost: $<%=r.getCost() %></p>
-		
-	</div>
-	<br>
+		<table>
+			<tr><td class="key">Flight ID: </td><td><%=r.getID() %></td></tr>
+			<tr><td class='key'>Flight Date: </td><td><%=r.getDateOfTravel() %></td></tr>
+			<tr><td class='key'>Departure Time: </td><td><%=r.getDepartureTime() %></td></tr>
+			<tr><td class='key'>Departure Location: </td><td><%=r.getSource() %></td></tr>
+			<tr><td class='key'>Arrival Time: </td><td><%=r.getArrivalTime() %></td></tr>
+			<tr><td class='key'>Arrival Location: </td><td><%=r.getDestination() %></td></tr>
+			<tr><td class='key'>Number of Stops: </td><td><%=r.getNumberOfStops() %></td></tr>
+			<tr><td class='key'>Class: </td><td><%=r.getFlightClass() %></td></tr>
+			<tr><td class='key'>Cost: </td><td>$<%=r.getCost() %></td></tr>
+		</table>	
+	
+	<br><br>
 	
 	<a href="FlightSearchResults.jsp"><button>Back</button></a>
-	<a href="Transaction.jsp"><button>Select</button></a>
+	<a href="Transaction.jsp"><button><b>Select</b></button></a>
 	<a href="FlightSearch.jsp"><button>Home</button></a>
 	
-	
+
 </div>
 </body>
 </html>

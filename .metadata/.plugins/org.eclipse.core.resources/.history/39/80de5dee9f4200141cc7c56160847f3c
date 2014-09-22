@@ -8,9 +8,7 @@ body {
 
 div.sidebar {
 	float: left;
-	width: 80px;
-	padding-right: 25px;
-	text-align: center;
+	width: 75px;
 }
 div.main {
 	float: left;
@@ -18,19 +16,18 @@ div.main {
 
 p {
     font-size: 12px;
-    
+    color: navy;
 }
 
 p.PageTitle {
     font-size: 20px;
-    color: #0000E6;
-    font-weight: bold;
+    color: navy;
+    font-style: bold;
 }
 
 p.subheading {
-	
 	font-size: 16px;
-	color: #5858DA;
+	
 }
 
 p.message {
@@ -39,11 +36,12 @@ p.message {
 }
 
 table {
-
+   border: 1px solid #3C5E8F;
 
 }
 
 th {
+	border: 1px solid #3C5E8F;
     background-color: #1975FF;
     color: white;
     padding: 4px;
@@ -53,39 +51,31 @@ th {
 }
 
 tr {
+	border: 1px solid #3C5E8F;
+	background-color: #CCE0FF;
+	
 }
 
-tr.repeatalt {
-
-	padding: 2px;
-	padding-left: 5px;
-	padding-right: 5px;
+tr.alt {
+	border: 1px solid #3C5E8F;
 	background-color: #E6E6E6;
 	
 }
 
-tr.repeat {
+td {
+	border: 0px;
 	padding: 2px;
 	padding-left: 5px;
 	padding-right: 5px;
-
 }
 
 td.button{
 	text-align: center;
 }
 
-td{
-	text-align: left;
-	padding: 4px;
+a.navibar{
 	
 }
-
-td.key{
-	font-weight: bold;
-}
-
-
 
 
 #login {
