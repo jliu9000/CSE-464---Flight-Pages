@@ -1,0 +1,100 @@
+package flight.bizlogic;
+import java.util.ArrayList;
+
+
+
+public class RecordFactory {
+	//Master list
+	private ArrayList<FlightRecord> oRecordsList;
+	private int nTotalRecords;
+	
+	//Lists for record generation
+	private String sListOfLocations[] = {"New York City, New York","Dallas, Texas","Sacramento, California",
+			"Chicago, Illinois","Lincoln, Nebraska","Denver, Colorado","Atlanta, Georgia"};
+	private int sListOfYears[] ={2014,2015,2016};
+	private String sListOfClass[] ={"First Class", "Business", "Economy"};
+	
+	//Static test record
+	private FlightRecord _oTestRecord = new FlightRecord(1, "Lincoln, NE", "Baltimore, MD", "9/28/2014", 52, "First Class",
+			"7:00 AM", "9:30 AM", 1, 400.00);
+	
+	public RecordFactory(int nTotalRecords){
+		
+		//use nTotalRecords <= 0 for a random number of 1 to 50 records
+		if (nTotalRecords <= 0){
+			this.nTotalRecords = (int) Math.round(Math.random() * 49) + 1;
+		}else{
+			this.nTotalRecords = nTotalRecords;
+		}
+		
+		oRecordsList = new ArrayList<FlightRecord>();
+		
+	}
+	
+	public void generateRecords(){
+
+		for (int i = 0; i<= nTotalRecords; i++){
+			oRecordsList.add(getSingleRecord());
+		}
+		
+	}
+	
+	public FlightRecord getSingleRecord(){
+		String sFormatedMonth;
+		int nYear, nMonth, nDay, nSeats, nClass, nSource, nDestination, nID;
+
+		nMonth = (int) Math.round(Math.random() * 12);
+		nDay = (int) Math.round(Math.random() * 28);
+		nYear = (int) Math.round(Math.random() * 2);
+		sFormatedMonth = nMonth + "/" +nDay +"/" +sListOfYears[nYear];
+		
+		nSeats = (int) Math.round(Math.random() * 100);
+		nClass = (int) Math.round(Math.random()*2);
+		nSource = (int) Math.round(Math.random()*6);
+		nDestination = (int) Math.round(Math.random() * 6);
+		//destination cannot equal source
+		while (nDestination == nSource){
+			nDestination = (int) Math.round(Math.random() * 6);
+		}
+
+		return new FlightRecord(sListOfLocations[nSource], sListOfLocations[nDestination], sFormatedMonth, nSeats, sListOfClass[nClass]);
+		
+	}
+		
+	
+
+	
+	
+	public String toHTMLTableRow(int nRow){
+		FlightRecord r;
+		String sHTMLRow;
+		if (nRow < oRecordsList.size()){
+			r = oRecordsList.get(nRow);
+		}else{
+			return "";
+		}
+		
+		sHTMLRow = "<td>" +r.getID() +"</td>";
+		sHTMLRow += "<td>" +r.getDateOfTravel() +"</td>";
+		sHTMLRow += "<td>" +r.getDepartureTime() +"</td>";
+		sHTMLRow += "<td>" +r.getArrivalTime() +"</td>";
+		sHTMLRow += "<td>" +r.getNumberOfStops() +"</td>";
+		sHTMLRow += "<td> $" +r.getCost() +"</td>";
+		
+		return sHTMLRow;
+	}
+	
+	public FlightRecord TestRecord() {
+		return _oTestRecord;
+	}
+	
+	public int TotalRecords(){
+		return nTotalRecords;
+		
+	}
+	
+	public ArrayList<FlightRecord> getRecords(){
+		
+		return oRecordsList;
+	}
+}
