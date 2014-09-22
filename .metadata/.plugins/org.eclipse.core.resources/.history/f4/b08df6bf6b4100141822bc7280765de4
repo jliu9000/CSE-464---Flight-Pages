@@ -1,0 +1,35 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font-family: "Verdana";
+	
+	
+}
+
+p {
+    font-family: "Verdana";
+    font-size: 20px;
+    color: navy;
+    font-style: bold;
+}
+
+table {
+   border: 1px solid black;
+   padding: 0px;
+}
+
+th {
+    background-color: blue;
+    color: white;
+
+}
+
+tr {
+	background-color: #E0EBFF;
+	
+}
+
+tr.alt {
+	background-color: #ADD6FF;
+	
+}

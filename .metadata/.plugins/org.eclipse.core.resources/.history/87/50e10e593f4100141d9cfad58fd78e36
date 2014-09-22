@@ -1,0 +1,5 @@
+package flight.bizlogic;
+
+public class RecordFactory {
+
+}

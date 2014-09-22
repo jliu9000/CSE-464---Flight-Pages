@@ -1,0 +1,9 @@
+package flight.bizlogic;
+
+public class RecordFactory {
+	
+	public static String write(){
+		
+		return "this worked";
+	}
+}

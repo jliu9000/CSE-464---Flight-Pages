@@ -1,0 +1,19 @@
+package flight.bizlogic;
+
+public class FlightRecord {
+	private String sSource;
+	private String sDestination;
+	private String sDateOfTravel; 
+	private String sClass;
+	private int nSeats;
+	
+	public FlightRecord(String sSource, String sDestination, String sDateOfTravel, int nSeats,
+			String sClass){
+		this.sSource = sSource;
+		this.sDestination = sDestination;
+		this.sDateOfTravel = sDateOfTravel;
+		this.nSeats = nSeats;
+		this.sClass = sClass;		
+	}
+	
+}

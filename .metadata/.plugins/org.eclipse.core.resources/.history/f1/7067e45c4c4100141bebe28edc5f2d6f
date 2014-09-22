@@ -1,0 +1,62 @@
+package flight.bizlogic;
+import java.util.ArrayList;
+import flight.bizlogic.FlightRecord;
+
+
+public class RecordFactory {
+	//list of generated records
+	private ArrayList<FlightRecord> oRecordsList;
+	
+	//Lists for record generation
+	private String sListOfLocations[] = {"New York City, New York","Dallas, Texas","Sacramento, California",
+			"Chicago, Illinois","Lincoln, Nebraska","Denver, Colorado","Atlanta, Georgia"};
+	private int sListOfYears[] ={2014,2015,2016};
+	private String sListOfClass[] ={"First Class", "Business", "Economy"};
+	private int nTotalRecords;
+	
+	public RecordFactory(){
+		oRecordsList = new ArrayList<FlightRecord>();
+		generateRecords();
+	}
+	
+	private void generateRecords(){
+		//generate 1-50 records
+		nTotalRecords = (int) Math.ceil(Math.random() * 50);
+
+		int nCount = 0;
+		int nRoll, nYear, nMonth, nDay, nSeats, nClass, nSource, nDestination, nYear;
+		String sFormatedMonth;
+		FlightRecord frTemp;
+		
+		for (int i = 0; i<= nTotalRecords; i++){
+			nMonth = (int) Math.ceil(Math.random() * 12);
+			nDay = (int) Math.ceil(Math.random() * 28);
+			nYear = (int) Math.ceil(Math.random() * 2);
+			nSeats = (int) Math.ceil(Math.random() * 100);
+			nClass = (int) Math.ceil(Math.random()*2);
+			nSource = (int) Math.ceil(Math.random()*6);
+			nDestination = (int) Math.ceil(Math.random() * 6);
+			//destination cannot equal source
+			while (nDestination == nSource){
+				nDestination = (int) Math.ceil(Math.random() * 7);
+			}
+			
+			oRecordsList.add(new FlightRecord(sListOfLocations[nSource], sListOfLocations[nDestination], sFormatedMonth, nSeats, sListOfClass[nClass]));
+		}
+		
+		
+		
+		}
+		
+	
+
+	
+	public String toHTML(){
+		FlightRecord r = oRecordsList.get(0);
+		String sRecords = r.toString();
+		//output records as html
+			
+		
+		return sRecords;
+	}
+}

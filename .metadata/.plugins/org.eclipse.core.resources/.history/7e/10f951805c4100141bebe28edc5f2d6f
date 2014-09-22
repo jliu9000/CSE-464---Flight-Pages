@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Flight Search Results</title>
+
+<%@ page import="flight.bizlogic.RecordFactory"%>
+</head>
+<body>
+
+
+	<%
+		RecordFactory records = new RecordFactory(0);
+	  	records.generateRecords();
+	%>
+	
+	<a id="login" href="/login.jsp">
+	<% 
+	//login or out
+	if (session.getAttribute("nUserID") != null){%>
+	Logout
+	<% } else { %>
+	Login
+	<%}%>
+	</a>
+	
+	<br><br>
+	<p class="PageTitle">Flight Search Results</p>
+	<%=records.TotalRecords %>
+	
+	<table>
+		<TR>
+			<th>Flight ID</th>
+			<th>Date</th>
+			<th>Departure Time</th>
+			<th>Arrival Time</th>
+			<th>Number of Stops</th>
+			<th>Cost</th>
+			<th></th>
+		</TR>
+		
+	
+		<%for (int i = 0; i<records.nTotalRecords; i++){%>
+		<tr>
+		<%=records.toHTMLTableRow(i) %>
+			<td>
+				<a href="ViewAndBook.jsp"><button>View and Book</button></a>
+			</td>
+		</tr>
+		<%} %>
+		
+	</table>
+	
+	
+</body>
+
+
+
+
+
+
+</html>
