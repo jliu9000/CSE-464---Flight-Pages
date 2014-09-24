@@ -10,35 +10,49 @@
 <title>Transaction Confirmation</title>
 </head>
 <body>
-<a id="login" href="login.jsp">
-<%=session.getAttribute("nUserID") != null ? "Logout" : "Login"%>
-</a>
 
-<%
-	RecordFactory records = new RecordFactory(1);
-	FlightRecord r = records.TestRecord();
-%>
+	<div class='sidebar'>
+		<a id="login" href="login.jsp">
+		<%=session.getAttribute("nUserID") != null ? "Logout" : "Login"%>
+		</a>
+	</div>
+		
+		<%
+			RecordFactory records = new RecordFactory(1);
+			FlightRecord r = records.TestRecord();
+		%>	
 
-<p class='PageTitle'>Transactions</p>
-
-<p class='message'>Your transaction has been confirmed.</p>
-<p class='subheading'>Flight Information:</p>
-<table>
-	<tr>
-		<td>Flight Number: </td><td><%=r.getID() %></td>
-		<td>Flight Date: </td><td><%=r.getDateOfTravel() %></td>
-	</tr>
-	<tr>
-		<td>Departure Time:</td><td><%=r.getDepartureTime() %></td>
-		<td>Arrival Time:</td><td><%=r.getArrivalTime() %></td>
-	</tr>
-	<tr>
-		<td>Number of Stops:</td><td><%=r.getNumberOfStops() %></td>
-		<td></td><td></td>
-	</tr>
-</table>
-<br>
-<p>Cost: <%=r.getCost() %></p>
-<a href="FlightSearch.jsp"><button>Home</button></a>
+	<div class='main'>
+		
+		<p class='PageTitle'>Transaction Confirmation</p>
+		<br>
+		<p class='message'>Your transaction has been confirmed.</p>
+		<br>
+		<p class='subheading'>Flight Information:</p>
+		<table>
+			<tr>
+				<td class='key'>Flight Number: </td><td><%=r.getID() %></td>
+				<td class='key'>Flight Date: </td><td><%=r.getDateOfTravel() %></td>
+			</tr>
+			<tr>
+				<td class='key'>Departure Time:</td><td><%=r.getDepartureTime() %></td>
+				<td class='key'>Arrival Time:</td><td><%=r.getArrivalTime() %></td>
+			</tr>
+			<tr>
+				<td class='key'>Number of Stops:</td><td><%=r.getNumberOfStops() %></td>
+			</tr>
+			<tr>
+				<td class='key'>Account Holder:</td><td><%=request.getParameter("sAccountHolder")%></td>
+			</tr>
+		</table>
+		<br>
+		<p><b>Cost:</b> $<%=r.getCost() %></p>
+		<br>
+		
+		<a href="FlightSearch.jsp"><button>Home</button></a>
+		
+		
+		
+	</div>
 </body>
 </html>

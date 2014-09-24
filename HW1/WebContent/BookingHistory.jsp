@@ -11,37 +11,41 @@
 <title>Booking History</title>
 </head>
 <body>
-<a id="login" href="login.jsp">
-<%=session.getAttribute("nUserID") != null ? "Logout" : "Login"%>
-</a>
-<% RecordFactory rf = new RecordFactory(0);
-	ArrayList<FlightRecord> oRecordsList;
-	rf.generateRecords();
+	<div class='sidebar'>
+		<a id="login" href="Login.jsp">
+		<%=session.getAttribute("nUserID") != null ? "Logout" : "Login"%>
+		</a>
+		<br>
+		<br>
+		<a href="FlightSearch.jsp"><button>Home</button></a>
+	</div>
+
+		<% RecordFactory rf = new RecordFactory(0);
+			ArrayList<FlightRecord> oRecordsList;
+			rf.generateRecords();
+			
+		 	oRecordsList = rf.getRecords();
+		   //can add list of user's transactions here later on.
+		 %>
+		 
+	<div class='main'>
+		
+		<p class="PageTitle">Booking History</p>
+		<p class="subheading"><%=oRecordsList.size() %> Total Records</p>
+		
+		<table>
+			<TR>
+				<th>Ticket Number: </th> <th> Flight Date </th>
+			</TR> 
+			<% for(FlightRecord r : oRecordsList) {%>
+			<TR>
+				<TD class='key'><%=r.getID() %></TD>
+				<TD><%=r.getDateOfTravel() %></TD>
+			</TR>
+			<% } %>
+		</table>
 	
- 	oRecordsList = rf.getRecords();
-   //can add list of user's transactions here later on.
-   %>
-<br>
-<br>
-<a href="FlightSearch.jsp"><button>Home</button></a>
-<br>
-
-<p class="PageTitle">Booking History</p>
-<p class="subheading"><%=oRecordsList.size() %> Total Records</p>
-
-<table>
-	<TR>
-		<th>Ticket Number: </th> <th> Flight Date </th>
-	</TR> 
-	<% for(FlightRecord r : oRecordsList) {%>
-	<TR>
-		<TD><%=r.getID() %></TD>
-		<TD><%=r.getDateOfTravel() %></TD>
-	</TR>
-	<% } %>
-</table>
-
-
+	</div>
 
 
 

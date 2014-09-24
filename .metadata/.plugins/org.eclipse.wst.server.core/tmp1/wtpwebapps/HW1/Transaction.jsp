@@ -10,52 +10,71 @@
 </head>
 
 <body>
-
-<a id="login" href="login.jsp">
-<%=session.getAttribute("nUserID") != null ? "Logout" : "Login"%>
-</a>
-
-<%
-	RecordFactory records = new RecordFactory(1);
-	FlightRecord r = records.TestRecord();
-%>
-
-<p class='PageTitle'>Transactions</p>
-<p class='subheading'>Flight Information:</p>
-<table>
-	<tr>
-		<td>Flight Number: </td><td><%=r.getID() %></td>
-		<td>Flight Date: </td><td><%=r.getDateOfTravel() %></td>
-	</tr>
-	<tr>
-		<td>Departure Time:</td><td><%=r.getDepartureTime() %></td>
-		<td>Arrival Time:</td><td><%=r.getArrivalTime() %></td>
-	</tr>
-	<tr>
-		<td>Number of Stops:</td><td><%=r.getNumberOfStops() %></td>
-		<td></td><td></td>
-	</tr>
-</table>
-<br>
-<p>Cost: <%=r.getCost() %></p>
-
-<p class='subheading'>Payment Information:</p>
-
-
-<div>
-	<form action='TransactionConfirmation.jsp' method=post>
-		Account Holder's Name: <input type="text" name="sAcctName">
-		<br>
-		Routing Number: <input type="text" name="nRoutingNumber">
-		<br>
-		Account Number: <input type="text" name="nAccountNumber">
-		<br>
-		<input type="submit" value="Confirm"></input>
-	</form>
-	<a href="FlightSearch.jsp"><button>Cancel</button></a>
+	<div class='sidebar'>
+		<a id="login" href="login.jsp">
+		<%=session.getAttribute("nUserID") != null ? "Logout" : "Login"%>
+		</a>
+	</div>
 	
-</div>
-
+	<%
+		RecordFactory records = new RecordFactory(1);
+		FlightRecord r = records.TestRecord();
+	%>
+	
+	<div class='main'>
+		<p class='PageTitle'>Transactions</p>
+		<p class='subheading'>Flight Information:</p>
+		<table>
+			<tr>
+				<td class='key'>Flight Number: </td><td><%=r.getID() %></td>
+				<td class='key'>Flight Date: </td><td><%=r.getDateOfTravel() %></td>
+			</tr>
+			<tr>
+				<td class='key'>Departure Time:</td><td><%=r.getDepartureTime() %></td>
+				<td class='key'>Arrival Time:</td><td><%=r.getArrivalTime() %></td>
+			</tr>
+			<tr>
+				<td class='key'>Number of Stops:</td><td><%=r.getNumberOfStops() %></td>
+				<td></td><td></td>
+			</tr>
+		</table>
+		<br>
+		<p><b>Cost:</b> $<%=r.getCost() %></p>
+		
+		<p class='subheading'>Payment Information:</p>
+		
+		
+		<table>
+			<form action='TransactionConfirmation.jsp' method=post>
+				<tr>
+					<td class='key'>Account Holder's Name: </td><td><input type="text" name="sAccountHolder"></td>
+				</tr>
+				<tr>
+					<td class='key'>Routing Number: </td><td><input type="text" name="nRoutingNumber"></td>
+				</tr>
+				<tr>
+					<td class='key'>Account Number: </td><td><input type="text" name="nAccountNumber"></td>
+				</tr>
+				<tr>
+					<td></td><td></td>
+				</tr>
+				<tr>
+					<td colspan=2 class='button'>	
+						<input type="submit" value="Confirm"></input>
+						</form>
+					</td>
+					
+				</tr>
+				<tr>
+					<td colspan=2 class='button'>						
+						<a href="FlightSearch.jsp"><button>Cancel</button></a>
+					</td>
+				
+				</tr>
+		</table>
+			
+		
+	</div>
 
 
 

@@ -10,46 +10,47 @@
 <%@ page import="flight.bizlogic.RecordFactory"%>
 </head>
 <body>
-
-<a id="login" href="login.jsp">
-<%=session.getAttribute("nUserID") != null ? "Logout" : "Login"%>
-</a>
-	
+	<div class="sidebar">
+		<a id="login" href="login.jsp">
+		<%=session.getAttribute("nUserID") != null ? "Logout" : "Login"%>
+		</a>
+	</div>
 	
 	<%  //get the records
 		RecordFactory records = new RecordFactory(0);
 	  	records.generateRecords();
 	%>
 	
-	
-	<br><br>
-	<p class="PageTitle">Flight Search Results</p>
-	<p class="subheading"><%=records.TotalRecords() %> Results Found</p>
-	
-	<table>
-		<TR>
-			<th>Flight ID</th>
-			<th>Date</th>
-			<th>Departure Time</th>
-			<th>Arrival Time</th>
-			<th>Number of Stops</th>
-			<th>Cost</th>
-			<th>Additional Details</th>
-		</TR>
+	<div class="main">	
 		
-	
-		<%for (int i = 0; i<records.TotalRecords(); i++){%>
-		<tr class='<%= i % 2 == 1 ? "" : "alt" %>'>
-		<%=records.toHTMLTableRow(i) %>
-			<td class="button">
-				<a href="ViewAndBook.jsp"><button>View and Book</button></a>
-			</td>
-		</tr>
-		<%} %>
+		<br><br>
+		<p class="PageTitle">Flight Search Results</p>
+		<p class="subheading"><b><%=records.TotalRecords() %></b> Results Found</p>
 		
-	</table>
-	
-	
+		<table>
+			<TR>
+				<th>Flight ID</th>
+				<th>Date</th>
+				<th>Departure Time</th>
+				<th>Arrival Time</th>
+				<th>Number of Stops</th>
+				<th>Cost</th>
+				<th>Additional Details</th>
+			</TR>
+			
+		
+			<%for (int i = 0; i<records.TotalRecords(); i++){%>
+			<tr class='<%= i % 2 == 1 ? "repeatalt" : "repeat" %>'>
+			<%=records.toHTMLTableRow(i) %>
+				<td class="button">
+					<a href="ViewAndBook.jsp"><button>View and Book</button></a>
+				</td>
+			</tr>
+			<%} %>
+			
+		</table>
+	</div>	
+
 </body>
 
 

@@ -65,49 +65,55 @@ public final class BookingHistory_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("<title>Booking History</title>\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
-      out.write("<a id=\"login\" href=\"login.jsp\">\r\n");
+      out.write("\t<div class='sidebar'>\r\n");
+      out.write("\t\t<a id=\"login\" href=\"Login.jsp\">\r\n");
+      out.write("\t\t");
       out.print(session.getAttribute("nUserID") != null ? "Logout" : "Login");
       out.write("\r\n");
-      out.write("</a>\r\n");
+      out.write("\t\t</a>\r\n");
+      out.write("\t\t<br>\r\n");
+      out.write("\t\t<br>\r\n");
+      out.write("\t\t<a href=\"FlightSearch.jsp\"><button>Home</button></a>\r\n");
+      out.write("\t</div>\r\n");
+      out.write("\r\n");
+      out.write("\t\t");
  RecordFactory rf = new RecordFactory(0);
-	ArrayList<FlightRecord> oRecordsList;
-	rf.generateRecords();
-	
- 	oRecordsList = rf.getRecords();
-   //can add list of user's transactions here later on.
-   
+			ArrayList<FlightRecord> oRecordsList;
+			rf.generateRecords();
+			
+		 	oRecordsList = rf.getRecords();
+		   //can add list of user's transactions here later on.
+		 
       out.write("\r\n");
-      out.write("<br>\r\n");
-      out.write("<br>\r\n");
-      out.write("<a href=\"FlightSearch.jsp\"><button>Home</button></a>\r\n");
-      out.write("<br>\r\n");
-      out.write("\r\n");
-      out.write("<p class=\"PageTitle\">Booking History</p>\r\n");
-      out.write("<p class=\"subheading\">");
+      out.write("\t\t \r\n");
+      out.write("\t<div class='main'>\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t\t<p class=\"PageTitle\">Booking History</p>\r\n");
+      out.write("\t\t<p class=\"subheading\">");
       out.print(oRecordsList.size() );
       out.write(" Total Records</p>\r\n");
-      out.write("\r\n");
-      out.write("<table>\r\n");
-      out.write("\t<TR>\r\n");
-      out.write("\t\t<th>Ticket Number: </th> <th> Flight Date </th>\r\n");
-      out.write("\t</TR> \r\n");
-      out.write("\t");
+      out.write("\t\t\r\n");
+      out.write("\t\t<table>\r\n");
+      out.write("\t\t\t<TR>\r\n");
+      out.write("\t\t\t\t<th>Ticket Number: </th> <th> Flight Date </th>\r\n");
+      out.write("\t\t\t</TR> \r\n");
+      out.write("\t\t\t");
  for(FlightRecord r : oRecordsList) {
       out.write("\r\n");
-      out.write("\t<TR>\r\n");
-      out.write("\t\t<TD>");
+      out.write("\t\t\t<TR>\r\n");
+      out.write("\t\t\t\t<TD class='key'>");
       out.print(r.getID() );
       out.write("</TD>\r\n");
-      out.write("\t\t<TD>");
+      out.write("\t\t\t\t<TD>");
       out.print(r.getDateOfTravel() );
       out.write("</TD>\r\n");
-      out.write("\t</TR>\r\n");
-      out.write("\t");
+      out.write("\t\t\t</TR>\r\n");
+      out.write("\t\t\t");
  } 
       out.write("\r\n");
-      out.write("</table>\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\t\t</table>\r\n");
+      out.write("\t\r\n");
+      out.write("\t</div>\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");

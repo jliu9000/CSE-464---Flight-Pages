@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<classpath>
+  <source-attachment entry="D:/eclipseEE/Tomcatv6/lib/tomcat-coyote.jar" runtime-id="Apache Tomcat v6.0" source-attachment-path="D:/eclipseEE/apache-tomcat-6.0.41.zip"/>
+</classpath>
