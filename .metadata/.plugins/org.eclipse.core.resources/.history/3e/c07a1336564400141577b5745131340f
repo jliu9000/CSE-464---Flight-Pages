@@ -1,0 +1,123 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font-family: "Verdana";
+	font-size:12px;
+	
+}
+
+div.sidebar {
+	color:white; 
+	border-style:none; 
+	float:left;
+	text-align:center;
+	margin: 20px;
+}
+div.main {
+	float: left;
+}
+
+ul {
+	font-size:14px; 
+	background-color:#1975FF;
+	list-style-type: none;
+	margin: 0;
+    padding: 0;
+	width: 80px;
+	height: 25px;
+}
+
+a.sidebar {
+	font-weight:bold;
+	color:white;
+	display: block;
+}
+
+a:visited {
+	font-weight:bold;
+    color:gray;
+}
+
+
+a:hover {
+	font-weight:bold;
+    color:red;
+}
+
+p {
+    font-size: 12px;
+    
+}
+
+p.PageTitle {
+    font-size: 20px;
+    color: #1975FF;
+    font-weight: bold;
+}
+
+p.subheading {
+	
+	font-size: 16px;
+	color: #5858DA;
+}
+
+p.message {
+	color: red;
+	text-align: center;
+}
+
+table {
+
+
+}
+
+th {
+    background-color: #1975FF;
+    color: white;
+    padding: 4px;
+    padding-left: 8px;
+	padding-right: 8px;
+	
+}
+
+tr {
+}
+
+tr.repeatalt {
+
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #E6E6E6;
+	
+}
+
+tr.repeat {
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+
+}
+
+td.button{
+	text-align: center;
+}
+
+td{
+	text-align: left;
+	padding: 4px;
+	
+}
+
+td.key{
+	font-weight: bold;
+}
+
+
+
+
+#login {
+    font-size:12px;
+}
+
+

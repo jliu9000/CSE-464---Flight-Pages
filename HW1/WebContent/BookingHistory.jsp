@@ -5,19 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="CSS/FlightStyles.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <%@ page import="flight.bizlogic.RecordFactory, flight.bizlogic.FlightRecord,java.util.ArrayList"%>
 
 
 <title>Booking History</title>
 </head>
 <body>
-	<div class='sidebar'>
-		<a id="login" href="Login.jsp">
-		<%=session.getAttribute("nUserID") != null ? "Logout" : "Login"%>
-		</a>
-		<br>
-		<br>
-		<a href="FlightSearch.jsp"><button>Home</button></a>
+	<div id='sidebar' class='sidebar'>
+	    <script>
+            $("#sidebar").load("sidebar.html");
+        </script>
 	</div>
 
 		<% RecordFactory rf = new RecordFactory(0);

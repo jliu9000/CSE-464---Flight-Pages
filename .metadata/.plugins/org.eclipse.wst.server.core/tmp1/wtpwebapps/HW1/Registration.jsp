@@ -11,13 +11,14 @@
 
 </head>
 <body>
-<div id="new-header">
-        <script>
-            $("#new-header").load("header.html");
+	<div id='sidebar' class='sidebar'>
+	    <script>
+            $("#sidebar").load("sidebar.html");
         </script>
-</div>
+	</div>
+	
 	<div style="width:750px">
-		<img src="./Images/Registration.png" alt="Login Page" align="middle">
+
 	
 		<form action="Registration" method="GET" onsubmit="return formSubmit();">
 			<table class="center">

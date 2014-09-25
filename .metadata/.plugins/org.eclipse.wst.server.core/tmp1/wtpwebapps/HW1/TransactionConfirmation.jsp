@@ -6,15 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="CSS/FlightStyles.css">
 <%@ page import="flight.bizlogic.RecordFactory,flight.bizlogic.FlightRecord"%>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <title>Transaction Confirmation</title>
 </head>
 <body>
 
-	<div class='sidebar'>
-		<a id="login" href="login.jsp">
-		<%=session.getAttribute("nUserID") != null ? "Logout" : "Login"%>
-		</a>
+	<div id='sidebar' class='sidebar'>
+	    <script>
+            $("#sidebar").load("sidebar.html");
+        </script>
 	</div>
 		
 		<%

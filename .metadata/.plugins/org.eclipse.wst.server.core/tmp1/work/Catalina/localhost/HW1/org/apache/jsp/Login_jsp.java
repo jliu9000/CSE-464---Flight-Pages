@@ -54,10 +54,18 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
+      out.write("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>\r\n");
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/Styles.css\">\r\n");
       out.write("<title>Internet Systems Homework1</title>\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
+      out.write("\r\n");
+      out.write("\t<div id='sidebar' class='sidebar'>\r\n");
+      out.write("\t    <script>\r\n");
+      out.write("            $(\"#sidebar\").load(\"sidebar.html\");\r\n");
+      out.write("        </script>\r\n");
+      out.write("\t</div>\r\n");
+      out.write("\t\r\n");
       out.write(" \t<form action=\"Login\">\r\n");
       out.write("\t\t<table class=\"center\">\r\n");
       out.write("\t\t\t<tr>\r\n");

@@ -55,6 +55,7 @@ public final class FlightSearchResults_jsp extends org.apache.jasper.runtime.Htt
       out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
+      out.write("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n");
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/FlightStyles.css\">\r\n");
       out.write("<title>Flight Search Results</title>\r\n");
@@ -62,12 +63,10 @@ public final class FlightSearchResults_jsp extends org.apache.jasper.runtime.Htt
       out.write("\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
-      out.write("\t<div class=\"sidebar\">\r\n");
-      out.write("\t\t<a id=\"login\" href=\"login.jsp\">\r\n");
-      out.write("\t\t");
-      out.print(session.getAttribute("nUserID") != null ? "Logout" : "Login");
-      out.write("\r\n");
-      out.write("\t\t</a>\r\n");
+      out.write("\t<div id='sidebar' class='sidebar'>\r\n");
+      out.write("\t    <script>\r\n");
+      out.write("            $(\"#sidebar\").load(\"sidebar.html\");\r\n");
+      out.write("        </script>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t\r\n");
       out.write("\t");
