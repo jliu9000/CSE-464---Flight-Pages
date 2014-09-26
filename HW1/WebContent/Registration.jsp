@@ -4,7 +4,7 @@
 <html>
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="./CSS/Styles.css">
+<link rel="stylesheet" type="text/css" href="./CSS/FlightStyles.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration</title>
 
@@ -17,10 +17,11 @@
         </script>
 	</div>
 	
-	<div style="width:750px">
-
+	<div class='main' style="width:750px">
+		<p class='PageTitle'>Registration</p>
+		
 	
-		<form action="Registration" method="GET" onsubmit="return formSubmit();">
+		<form action="Registration" method="post" onsubmit="return formSubmit();">
 			<table class="center">
 			
 				<tr>

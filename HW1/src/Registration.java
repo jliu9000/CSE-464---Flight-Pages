@@ -27,6 +27,15 @@ public class Registration extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	
+	     
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		String path = this.getServletContext().getRealPath("/");
 		String sUserName = request.getParameter("UserName");
 		String sPassword = request.getParameter("Password");
@@ -42,14 +51,6 @@ public class Registration extends HttpServlet {
 			out.println("<html><body onload=\"alert('Username already exists');\"></body></html>");
 		}
 		response.sendRedirect("Login.jsp");
-	     
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
 }

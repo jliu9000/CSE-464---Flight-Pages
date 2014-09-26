@@ -27,25 +27,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		String path = this.getServletContext().getRealPath("/");
-		Users newUser = new Users(path);
-		String sUserName = request.getParameter("Username");
-		String sPassword = request.getParameter("Password");
-		boolean ValidLogin = newUser.VerifyPassword(sUserName, sPassword);
-		if (ValidLogin){
-			response.sendRedirect("FlightSearch.jsp");
-		}
-		else response.sendRedirect("Registration.jsp");
-		
-		
-		
-		//if user exists, redirect somewhere, else redirect elsewhere
-		
-		
-		PrintWriter out = response.getWriter();
-	      out.println("<h1>" + "this is a test thingy" + "</h1>");
 	}
 
 	/**
@@ -53,6 +35,25 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
+				String path = this.getServletContext().getRealPath("/");
+				Users newUser = new Users(path);
+				String sUserName = request.getParameter("Username");
+				String sPassword = request.getParameter("Password");
+				boolean ValidLogin = newUser.VerifyPassword(sUserName, sPassword);
+				if (ValidLogin){
+					response.sendRedirect("FlightSearch.jsp");
+				}
+				else response.sendRedirect("Registration.jsp");
+				
+				
+				
+				//if user exists, redirect somewhere, else redirect elsewhere
+				
+				
+				PrintWriter out = response.getWriter();
+			      out.println("<h1>" + "this is a test thingy" + "</h1>");
 	}
 
 }

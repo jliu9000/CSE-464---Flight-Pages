@@ -4,7 +4,7 @@
 <html>
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="./CSS/Styles.css">
+<link rel="stylesheet" type="text/css" href="./CSS/FlightStyles.css">
 <title>Internet Systems Homework1</title>
 </head>
 <body>
@@ -14,29 +14,29 @@
             $("#sidebar").load("sidebar.html");
         </script>
 	</div>
+	<div class='main'>
+		<p class='PageTitle'>Login</p>
 	
- 	<form action="Login">
-		<table class="center">
-			<tr>
-				<td colspan="2">
-					<img src="./Images/Login.png" alt="Login Page">
-				</td>
-			</tr>
-			<tr>
-				<td align="right" >Username:</td>
-				<td><input type="text" id="inputUserName" name="Username"></td>
-			</tr>
-			<tr>
-				<td align="right">Password:</td>
-				<td><input type="password" id="inputPassword" name="Password"></td>
-			</tr>
-			<tr>
-				<td align="right"><input type="submit" name="btnSubmitButton" value="Submit"/></td>
-				<td align="left"><a href="./Registration.jsp">Register New User</a>
-			</tr>
-		
-		</table>
-	</form>
+	 	<form action="Login" method=post>
+			<table class="center">
+
+				<tr>
+					<td align="right" >Username:</td>
+					<td><input type="text" id="inputUserName" name="Username"></td>
+				</tr>
+				<tr>
+					<td align="right">Password:</td>
+					<td><input type="password" id="inputPassword" name="Password"></td>
+				</tr>
+				<tr>
+					<td align="right"><input type="submit" name="btnSubmitButton" value="Submit"/></td>
+					<td align="left"><a href="./Registration.jsp" style="color:blue">Register New User</a>
+				</tr>
+			
+			</table>
+		</form>
+	
+	</div>
 </body>
 
 

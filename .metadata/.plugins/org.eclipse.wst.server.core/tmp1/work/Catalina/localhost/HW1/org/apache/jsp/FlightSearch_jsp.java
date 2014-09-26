@@ -54,7 +54,7 @@ public final class FlightSearch_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
-      out.write("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>\r\n");
+      out.write("\t<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n");
@@ -86,7 +86,7 @@ public final class FlightSearch_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("\t\t\t\t<tr>\r\n");
       out.write("\t\t\t\t\t<td>Class:</td>\r\n");
       out.write("\t\t\t\t\t<td> \r\n");
-      out.write("\t\t\t\t\t\t<select name=\"class\">\r\n");
+      out.write("\t\t\t\t\t\t<select name=\"sClass\">\r\n");
       out.write("\t\t\t\t\t\t<option value=\"first\">First Class</option>\r\n");
       out.write("\t\t\t\t\t\t<option value=\"business\">Business</option>\r\n");
       out.write("\t\t\t\t\t\t<option value=\"economy\">Economy</option>\r\n");

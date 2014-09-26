@@ -55,7 +55,7 @@ public final class Registration_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("<html>\r\n");
       out.write("<head>\r\n");
       out.write("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>\r\n");
-      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/Styles.css\">\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/FlightStyles.css\">\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n");
       out.write("<title>Registration</title>\r\n");
       out.write("\r\n");
@@ -68,10 +68,11 @@ public final class Registration_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("        </script>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t\r\n");
-      out.write("\t<div style=\"width:750px\">\r\n");
-      out.write("\r\n");
+      out.write("\t<div class='main' style=\"width:750px\">\r\n");
+      out.write("\t\t<p class='PageTitle'>Registration</p>\r\n");
+      out.write("\t\t\r\n");
       out.write("\t\r\n");
-      out.write("\t\t<form action=\"Registration\" method=\"GET\" onsubmit=\"return formSubmit();\">\r\n");
+      out.write("\t\t<form action=\"Registration\" method=\"post\" onsubmit=\"return formSubmit();\">\r\n");
       out.write("\t\t\t<table class=\"center\">\r\n");
       out.write("\t\t\t\r\n");
       out.write("\t\t\t\t<tr>\r\n");
