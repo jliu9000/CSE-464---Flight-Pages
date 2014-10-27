@@ -62,12 +62,14 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\t<div id='sidebar' class='sidebar'>\r\n");
       out.write("\t    <script>\r\n");
-      out.write("            $(\"#sidebar\").load(\"sidebar.html\");\r\n");
+      out.write("            $(\"#sidebar\").load(\"sidebar.jsp\");\r\n");
       out.write("        </script>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t<div class='main'>\r\n");
       out.write("\t\t<p class='PageTitle'>Login</p>\r\n");
-      out.write("\t\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t\t<div id='divErrorMessage'></div>\r\n");
+      out.write("\t\t\r\n");
       out.write("\t \t<form action=\"Login\" method=post>\r\n");
       out.write("\t\t\t<table class=\"center\">\r\n");
       out.write("\r\n");

@@ -68,7 +68,7 @@ public final class ViewAndBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\t<div id='sidebar' class='sidebar'>\r\n");
       out.write("\t    <script>\r\n");
-      out.write("            $(\"#sidebar\").load(\"sidebar.html\");\r\n");
+      out.write("            $(\"#sidebar\").load(\"sidebar.jsp\");\r\n");
       out.write("        </script>\r\n");
       out.write("\t</div>\r\n");
       out.write("\r\n");
@@ -76,8 +76,19 @@ public final class ViewAndBook_jsp extends org.apache.jasper.runtime.HttpJspBase
   
 		RecordFactory records = new RecordFactory(1);
 		FlightRecord r = records.TestRecord();
+		
 	
-      out.write("\r\n");
+      out.write('\r');
+      out.write('\n');
+      flight.bizlogic.FlightRecord SelectedFlight = null;
+      synchronized (session) {
+        SelectedFlight = (flight.bizlogic.FlightRecord) _jspx_page_context.getAttribute("SelectedFlight", PageContext.SESSION_SCOPE);
+        if (SelectedFlight == null){
+          SelectedFlight = new flight.bizlogic.FlightRecord();
+          _jspx_page_context.setAttribute("SelectedFlight", SelectedFlight, PageContext.SESSION_SCOPE);
+        }
+      }
+      out.write(" \r\n");
       out.write("\t\r\n");
       out.write("<div class='main'>\r\n");
       out.write("\r\n");
@@ -85,44 +96,79 @@ public final class ViewAndBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\r\n");
       out.write("\t\r\n");
       out.write("\t\t<table>\r\n");
-      out.write("\t\t\t<tr><td class=\"key\">Flight ID: </td><td>");
-      out.print(r.getID() );
+      out.write("\t\t\t<form action='Transaction.jsp' method=get>\r\n");
+      out.write("\t\t\t\t<tr><td class=\"key\">Number of Seats</td><td>\r\n");
+      out.write("\t\t\t\t\t<select name=\"nSeats\">\r\n");
+      out.write("\t\t\t\t\t\t");
+ for (int i=1; i<=r.getSeats(); i++) {
+      out.write(" \r\n");
+      out.write("\t\t\t\t\t\t\t<option value=\"");
+      out.print(i );
+      out.write('"');
+      out.write('>');
+      out.print(i );
+      out.write("</option>\r\n");
+      out.write("\t\t\t\t\t\t");
+} 
+      out.write("\r\n");
+      out.write("\t\t\t\t\t</select>\r\n");
+      out.write("\t\t\t\t\t</td>\r\n");
+      out.write("\t\t\t\t</td></tr>\r\n");
+      out.write("\t\t\t\t<tr><td class=\"key\">Flight ID: </td><td>");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getnID())));
       out.write("</td></tr>\r\n");
-      out.write("\t\t\t<tr><td class='key'>Flight Date: </td><td>");
-      out.print(r.getDateOfTravel() );
+      out.write("\t\t\t\t<tr><td class='key'>Flight Date: </td><td>");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getsDateOfTravel())));
       out.write("</td></tr>\r\n");
-      out.write("\t\t\t<tr><td class='key'>Departure Time: </td><td>");
-      out.print(r.getDepartureTime() );
+      out.write("\t\t\t\t<tr><td class='key'>Departure Time: </td><td>");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getsDepartureTime())));
       out.write("</td></tr>\r\n");
-      out.write("\t\t\t<tr><td class='key'>Departure Location: </td><td>");
-      out.print(r.getSource() );
+      out.write("\t\t\t\t<tr><td class='key'>Departure Location: </td><td>");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getsSource())));
       out.write("</td></tr>\r\n");
-      out.write("\t\t\t<tr><td class='key'>Arrival Time: </td><td>");
-      out.print(r.getArrivalTime() );
+      out.write("\t\t\t\t<tr><td class='key'>Arrival Time: </td><td>");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getsArrivalTime())));
       out.write("</td></tr>\r\n");
-      out.write("\t\t\t<tr><td class='key'>Arrival Location: </td><td>");
-      out.print(r.getDestination() );
+      out.write("\t\t\t\t<tr><td class='key'>Arrival Location: </td><td>");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getsDestination())));
       out.write("</td></tr>\r\n");
-      out.write("\t\t\t<tr><td class='key'>Number of Stops: </td><td>");
-      out.print(r.getNumberOfStops() );
+      out.write("\t\t\t\t<tr><td class='key'>Number of Stops: </td><td>");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getnNumberOfStops())));
       out.write("</td></tr>\r\n");
-      out.write("\t\t\t<tr><td class='key'>Class: </td><td>");
-      out.print(r.getFlightClass() );
+      out.write("\t\t\t\t<tr><td class='key'>Class: </td><td>");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getsClass())));
       out.write("</td></tr>\r\n");
-      out.write("\t\t\t<tr><td class='key'>Cost: </td><td>$");
-      out.print(r.getCost() );
+      out.write("\t\t\t\t<tr><td class='key'>Cost: </td><td>$");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getdCost())));
       out.write("</td></tr>\r\n");
+      out.write("\t\t\t\t\r\n");
+      out.write("\t\r\n");
       out.write("\t\t</table>\t\r\n");
       out.write("\t\r\n");
       out.write("\t<br><br>\r\n");
-      out.write("\t\r\n");
-      out.write("\t<a href=\"FlightSearchResults.jsp\"><button>Back</button></a>\r\n");
-      out.write("\t<a href=\"Transaction.jsp\"><button><b>Select</b></button></a>\r\n");
-      out.write("\t<a href=\"FlightSearch.jsp\"><button>Home</button></a>\r\n");
-      out.write("\t\r\n");
+      out.write("\t<table>\r\n");
+      out.write("\t<tr><td><a href=\"FlightSearchResults.jsp\"><button type=\"button\" onclick=\"goBack()\">Back</button></a></td>\r\n");
+      out.write("\t<td><input type=\"submit\" value=\"Submit\" style=\"font-weight:bold;\"></input></td>\r\n");
+      out.write("\t<td><button type=button onclick=\"goHome()\">Home</button></td></tr>\r\n");
+      out.write("\t</table>\t\t</form>\r\n");
       out.write("\r\n");
       out.write("</div>\r\n");
       out.write("</body>\r\n");
+      out.write("\r\n");
+      out.write("<script>\r\n");
+      out.write("\tfunction goBack() {\r\n");
+      out.write("\r\n");
+      out.write("\t\twindow.location.replace(\"FlightSearchResults.jsp\");\r\n");
+      out.write("\t}\r\n");
+      out.write("\t\r\n");
+      out.write("\tfunction goHome() {\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t\twindow.location.replace(\"FlightSearch.jsp\");\r\n");
+      out.write("\t}\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("</script>\r\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

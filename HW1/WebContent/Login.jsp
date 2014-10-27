@@ -11,12 +11,14 @@
 
 	<div id='sidebar' class='sidebar'>
 	    <script>
-            $("#sidebar").load("sidebar.html");
+            $("#sidebar").load("sidebar.jsp");
         </script>
 	</div>
 	<div class='main'>
 		<p class='PageTitle'>Login</p>
-	
+		
+		<div id='divErrorMessage'></div>
+		
 	 	<form action="Login" method=post>
 			<table class="center">
 

@@ -16,14 +16,16 @@
 
 	<div id='sidebar' class='sidebar'>
 	    <script>
-            $("#sidebar").load("sidebar.html");
+            $("#sidebar").load("sidebar.jsp");
         </script>
 	</div>
 
 	<%  
 		RecordFactory records = new RecordFactory(1);
 		FlightRecord r = records.TestRecord();
+		
 	%>
+<jsp:useBean id="SelectedFlight" class="flight.bizlogic.FlightRecord" scope="session" /> 
 	
 <div class='main'>
 
@@ -31,24 +33,50 @@
 	
 	
 		<table>
-			<tr><td class="key">Flight ID: </td><td><%=r.getID() %></td></tr>
-			<tr><td class='key'>Flight Date: </td><td><%=r.getDateOfTravel() %></td></tr>
-			<tr><td class='key'>Departure Time: </td><td><%=r.getDepartureTime() %></td></tr>
-			<tr><td class='key'>Departure Location: </td><td><%=r.getSource() %></td></tr>
-			<tr><td class='key'>Arrival Time: </td><td><%=r.getArrivalTime() %></td></tr>
-			<tr><td class='key'>Arrival Location: </td><td><%=r.getDestination() %></td></tr>
-			<tr><td class='key'>Number of Stops: </td><td><%=r.getNumberOfStops() %></td></tr>
-			<tr><td class='key'>Class: </td><td><%=r.getFlightClass() %></td></tr>
-			<tr><td class='key'>Cost: </td><td>$<%=r.getCost() %></td></tr>
+			<form action='Transaction.jsp' method=get>
+				<tr><td class="key">Number of Seats</td><td>
+					<select name="nSeats">
+						<% for (int i=1; i<=r.getSeats(); i++) {%> 
+							<option value="<%=i %>"><%=i %></option>
+						<%} %>
+					</select>
+					</td>
+				</td></tr>
+				<tr><td class="key">Flight ID: </td><td><jsp:getProperty name="SelectedFlight" property="nID" /></td></tr>
+				<tr><td class='key'>Flight Date: </td><td><jsp:getProperty name="SelectedFlight" property="sDateOfTravel" /></td></tr>
+				<tr><td class='key'>Departure Time: </td><td><jsp:getProperty name="SelectedFlight" property="sDepartureTime" /></td></tr>
+				<tr><td class='key'>Departure Location: </td><td><jsp:getProperty name="SelectedFlight" property="sSource" /></td></tr>
+				<tr><td class='key'>Arrival Time: </td><td><jsp:getProperty name="SelectedFlight" property="sArrivalTime" /></td></tr>
+				<tr><td class='key'>Arrival Location: </td><td><jsp:getProperty name="SelectedFlight" property="sDestination" /></td></tr>
+				<tr><td class='key'>Number of Stops: </td><td><jsp:getProperty name="SelectedFlight" property="nNumberOfStops" /></td></tr>
+				<tr><td class='key'>Class: </td><td><jsp:getProperty name="SelectedFlight" property="sClass" /></td></tr>
+				<tr><td class='key'>Cost: </td><td>$<jsp:getProperty name="SelectedFlight" property="dCost" /></td></tr>
+				
+	
 		</table>	
 	
 	<br><br>
-	
-	<a href="FlightSearchResults.jsp"><button>Back</button></a>
-	<a href="Transaction.jsp"><button><b>Select</b></button></a>
-	<a href="FlightSearch.jsp"><button>Home</button></a>
-	
+	<table>
+	<tr><td><a href="FlightSearchResults.jsp"><button type="button" onclick="goBack()">Back</button></a></td>
+	<td><input type="submit" value="Submit" style="font-weight:bold;"></input></td>
+	<td><button type=button onclick="goHome()">Home</button></td></tr>
+	</table>		</form>
 
 </div>
 </body>
+
+<script>
+	function goBack() {
+
+		window.location.replace("FlightSearchResults.jsp");
+	}
+	
+	function goHome() {
+		
+		window.location.replace("FlightSearch.jsp");
+	}
+
+
+
+</script>
 </html>

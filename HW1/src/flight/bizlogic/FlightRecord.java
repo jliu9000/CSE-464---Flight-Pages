@@ -12,6 +12,11 @@ public class FlightRecord {
 	private double dCost;
 	private int nID;
 	
+	public FlightRecord(){}
+	
+	
+	//THE FOLLOWING WILL MOST LIKELY BE DEPRECIATED AFTER HW2, DO NOT USE!!! ==================================
+	//IF YOU HAVE CHANGES ADD IT ABOVE THIS SECTION  ==========================================================
 	
 	public FlightRecord(String sSource, String sDestination, String sDateOfTravel, int nSeats,
 			String sClass){ 
@@ -100,6 +105,111 @@ public class FlightRecord {
 
 	public int getSeats() {
 		return nSeats;
+	}
+	// END DEPRECIATED SECTION ============================================================================================
+	
+	
+
+	// USE THE GETTERS/SETTERS BELOW FOR HW2 ==============================================================================
+
+	public String getsSource() {
+		return sSource;
+	}
+
+
+	public void setsSource(String sSource) {
+		this.sSource = sSource;
+	}
+
+
+	public String getsDestination() {
+		return sDestination;
+	}
+
+
+	public void setsDestination(String sDestination) {
+		this.sDestination = sDestination;
+	}
+
+
+	public String getsDateOfTravel() {
+		return sDateOfTravel;
+	}
+
+
+	public void setsDateOfTravel(String sDateOfTravel) {
+		this.sDateOfTravel = sDateOfTravel;
+	}
+
+
+	public String getsClass() {
+		return sClass;
+	}
+
+
+	public void setsClass(String sClass) {
+		this.sClass = sClass;
+	}
+
+
+	public int getnSeats() {
+		return nSeats;
+	}
+	
+
+
+	public void setnSeats(int nSeats) {
+		this.nSeats = nSeats;
+	}
+
+
+	public String getsDepartureTime() {
+		return sDepartureTime;
+	}
+
+
+	public void setsDepartureTime(String sDepartureTime) {
+		this.sDepartureTime = sDepartureTime;
+	}
+
+
+	public String getsArrivalTime() {
+		return sArrivalTime;
+	}
+
+
+	public void setsArrivalTime(String sArrivalTime) {
+		this.sArrivalTime = sArrivalTime;
+	}
+
+
+	public int getnNumberOfStops() {
+		return nNumberOfStops;
+	}
+
+
+	public void setnNumberOfStops(int nNumberOfStops) {
+		this.nNumberOfStops = nNumberOfStops;
+	}
+
+
+	public double getdCost() {
+		return dCost;
+	}
+
+
+	public void setdCost(double dCost) {
+		this.dCost = dCost;
+	}
+
+
+	public int getnID() {
+		return nID;
+	}
+
+
+	public void setnID(int nID) {
+		this.nID = nID;
 	}
 	
 

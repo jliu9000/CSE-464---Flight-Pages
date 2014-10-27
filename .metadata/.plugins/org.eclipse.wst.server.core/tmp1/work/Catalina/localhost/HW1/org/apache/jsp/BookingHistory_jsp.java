@@ -68,7 +68,7 @@ public final class BookingHistory_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("<body>\r\n");
       out.write("\t<div id='sidebar' class='sidebar'>\r\n");
       out.write("\t    <script>\r\n");
-      out.write("            $(\"#sidebar\").load(\"sidebar.html\");\r\n");
+      out.write("            $(\"#sidebar\").load(\"sidebar.jsp\");\r\n");
       out.write("        </script>\r\n");
       out.write("\t</div>\r\n");
       out.write("\r\n");
@@ -94,9 +94,15 @@ public final class BookingHistory_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\t\t\t\t<th>Ticket Number: </th> <th> Flight Date </th>\r\n");
       out.write("\t\t\t</TR> \r\n");
       out.write("\t\t\t");
- for(FlightRecord r : oRecordsList) {
+ 
+			int i = 1;
+			for(FlightRecord r : oRecordsList) {
+			i++;
+			
       out.write("\r\n");
-      out.write("\t\t\t<TR>\r\n");
+      out.write("\t\t\t<tr class='");
+      out.print( i % 2 == 1 ? "repeatalt" : "repeat" );
+      out.write("'>\r\n");
       out.write("\t\t\t\t<TD class='key'>");
       out.print(r.getID() );
       out.write("</TD>\r\n");
@@ -110,7 +116,8 @@ public final class BookingHistory_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\t\t</table>\r\n");
       out.write("\t\r\n");
       out.write("\t</div>\r\n");
-      out.write("\r\n");
+      out.write("\t\r\n");
+      out.write("<BR><BR><BR><BR>\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("</table>\r\n");

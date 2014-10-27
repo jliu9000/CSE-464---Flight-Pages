@@ -87,6 +87,11 @@ public final class TransactionConfirmation_jsp extends org.apache.jasper.runtime
       out.write("\t\t<p class='subheading'>Flight Information:</p>\r\n");
       out.write("\t\t<table>\r\n");
       out.write("\t\t\t<tr>\r\n");
+      out.write("\t\t\t\t<td class='key'>Account Holder:</td><td>");
+      out.print(request.getParameter("sAccountHolder"));
+      out.write("</td>\r\n");
+      out.write("\t\t\t</tr>\r\n");
+      out.write("\t\t\t<tr>\r\n");
       out.write("\t\t\t\t<td class='key'>Flight Number: </td><td>");
       out.print(r.getID() );
       out.write("</td>\r\n");
@@ -107,11 +112,7 @@ public final class TransactionConfirmation_jsp extends org.apache.jasper.runtime
       out.print(r.getNumberOfStops() );
       out.write("</td>\r\n");
       out.write("\t\t\t</tr>\r\n");
-      out.write("\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t<td class='key'>Account Holder:</td><td>");
-      out.print(request.getParameter("sAccountHolder"));
-      out.write("</td>\r\n");
-      out.write("\t\t\t</tr>\r\n");
+      out.write("\t\t\t\r\n");
       out.write("\t\t</table>\r\n");
       out.write("\t\t<br>\r\n");
       out.write("\t\t<p><b>Cost:</b> $");

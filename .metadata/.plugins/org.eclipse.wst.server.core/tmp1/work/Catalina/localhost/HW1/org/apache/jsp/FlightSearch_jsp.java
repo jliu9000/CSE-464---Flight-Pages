@@ -66,7 +66,7 @@ public final class FlightSearch_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("<body>\r\n");
       out.write("\t<div id='sidebar' class='sidebar'>\r\n");
       out.write("        <script>\r\n");
-      out.write("            $('#sidebar').load('sidebar.html');\r\n");
+      out.write("            $('#sidebar').load('sidebar.jsp');\r\n");
       out.write("        </script>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t\r\n");

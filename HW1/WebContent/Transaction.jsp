@@ -13,7 +13,7 @@
 <body>
 	<div id='sidebar' class='sidebar'>
 	    <script>
-            $("#sidebar").load("sidebar.html");
+            $("#sidebar").load("sidebar.jsp");
         </script>
 	</div>
 	
@@ -60,29 +60,30 @@
 					<td></td><td></td>
 				</tr>
 				<tr>
-					<td colspan=2 class='button'>	
+					<td class='button' colspan=2>	
 						<input type="submit" value="Confirm"></input>
-						</form>
+				        &nbsp;&nbsp;&nbsp;&nbsp;
+						<button type="button" onclick="Cancel()">Cancel</button></a>
 					</td>
-					
 				</tr>
-				<tr>
-					<td colspan=2 class='button'>						
-						<a href="FlightSearch.jsp"><button>Cancel</button></a>
-					</td>
-				
-				</tr>
+			</form>
 		</table>
 			
 		
 	</div>
 
-
+<br><br><br>
 
 
 
 </body>
 
+<script>
+	
+	function Cancel() {
+		window.location.replace("FlightSearch.jsp");
+	}
+</script>
 
 
 

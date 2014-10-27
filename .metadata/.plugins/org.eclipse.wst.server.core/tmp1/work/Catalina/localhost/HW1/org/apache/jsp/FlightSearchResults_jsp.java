@@ -65,7 +65,7 @@ public final class FlightSearchResults_jsp extends org.apache.jasper.runtime.Htt
       out.write("<body>\r\n");
       out.write("\t<div id='sidebar' class='sidebar'>\r\n");
       out.write("\t    <script>\r\n");
-      out.write("            $(\"#sidebar\").load(\"sidebar.html\");\r\n");
+      out.write("            $(\"#sidebar\").load(\"sidebar.jsp\");\r\n");
       out.write("        </script>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t\r\n");
@@ -114,6 +114,7 @@ for (int i = 0; i<records.TotalRecords(); i++){
       out.write("\r\n");
       out.write("\t\t\t\r\n");
       out.write("\t\t</table>\r\n");
+      out.write("\t\t<br><br>\r\n");
       out.write("\t</div>\t\r\n");
       out.write("\r\n");
       out.write("</body>\r\n");

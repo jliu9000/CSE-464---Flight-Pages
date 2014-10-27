@@ -13,7 +13,7 @@
 <body>
 	<div id='sidebar' class='sidebar'>
 	    <script>
-            $("#sidebar").load("sidebar.html");
+            $("#sidebar").load("sidebar.jsp");
         </script>
 	</div>
 	
@@ -50,6 +50,7 @@
 			<%} %>
 			
 		</table>
+		<br><br>
 	</div>	
 
 </body>

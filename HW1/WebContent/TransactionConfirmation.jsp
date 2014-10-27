@@ -14,7 +14,7 @@
 
 	<div id='sidebar' class='sidebar'>
 	    <script>
-            $("#sidebar").load("sidebar.html");
+            $("#sidebar").load("sidebar.jsp");
         </script>
 	</div>
 		
@@ -32,6 +32,9 @@
 		<p class='subheading'>Flight Information:</p>
 		<table>
 			<tr>
+				<td class='key'>Account Holder:</td><td><%=request.getParameter("sAccountHolder")%></td>
+			</tr>
+			<tr>
 				<td class='key'>Flight Number: </td><td><%=r.getID() %></td>
 				<td class='key'>Flight Date: </td><td><%=r.getDateOfTravel() %></td>
 			</tr>
@@ -42,9 +45,7 @@
 			<tr>
 				<td class='key'>Number of Stops:</td><td><%=r.getNumberOfStops() %></td>
 			</tr>
-			<tr>
-				<td class='key'>Account Holder:</td><td><%=request.getParameter("sAccountHolder")%></td>
-			</tr>
+			
 		</table>
 		<br>
 		<p><b>Cost:</b> $<%=r.getCost() %></p>

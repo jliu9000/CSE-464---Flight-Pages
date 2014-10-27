@@ -14,7 +14,7 @@
 <body>
 	<div id='sidebar' class='sidebar'>
 	    <script>
-            $("#sidebar").load("sidebar.html");
+            $("#sidebar").load("sidebar.jsp");
         </script>
 	</div>
 
@@ -35,8 +35,12 @@
 			<TR>
 				<th>Ticket Number: </th> <th> Flight Date </th>
 			</TR> 
-			<% for(FlightRecord r : oRecordsList) {%>
-			<TR>
+			<% 
+			int i = 1;
+			for(FlightRecord r : oRecordsList) {
+			i++;
+			%>
+			<tr class='<%= i % 2 == 1 ? "repeatalt" : "repeat" %>'>
 				<TD class='key'><%=r.getID() %></TD>
 				<TD><%=r.getDateOfTravel() %></TD>
 			</TR>
@@ -44,7 +48,8 @@
 		</table>
 	
 	</div>
-
+	
+<BR><BR><BR><BR>
 
 
 </table>

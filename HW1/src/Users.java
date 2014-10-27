@@ -4,11 +4,13 @@ import java.util.*;
 /**
  * @author Kyle Hanish , John Liu
  *
+ *
+ * 
  */
 public class Users {
 	HashMap<String,String> userAndPassword;
 	String userFilePath;
-
+	
 	
 	public Users(String path) throws IOException{
 		
@@ -26,7 +28,7 @@ public class Users {
 			String sUserName = tokens[0].toString();
 			String sPassword = tokens[1].toString();
 			userAndPassword.put(sUserName.toLowerCase(), sPassword.toLowerCase());
-			System.out.println(userAndPassword);
+//			System.out.println(userAndPassword);
 		}
 		fr.close();
 		br.close();
@@ -63,7 +65,8 @@ public class Users {
 		
 		writer.flush();
 		writer.close();
-		System.out.println("add user: " + userAndPassword);
+		
+//		System.out.println("add user: " + userAndPassword);
 		return true;
 	}
 	
