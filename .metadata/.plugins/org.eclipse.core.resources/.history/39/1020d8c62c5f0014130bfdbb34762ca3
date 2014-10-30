@@ -1,0 +1,83 @@
+package flight.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.Session;
+
+import flight.bizlogic.*;
+/**
+ * Servlet implementation class FlightSearchQuery
+ */
+public class FlightSearchQuery extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public FlightSearchQuery() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FlightRecordList lRecords = new FlightRecordList();
+		
+		//form parameters
+		/**
+		String sSource = request.getParameter("sSource");
+		String sDestination = request.getParameter("sDestination");
+		String sDate = request.getParameter("sDate");
+		int nSeats = Integer.parseInt(request.getParameter("nSeats"));
+		String sClass = request.getParameter("sClass");
+		**/
+		
+		//static test data ===================
+		ArrayList<FlightRecord> al = new ArrayList();
+		FlightRecord fr;
+		
+		for (int i=0; i<10; i++){
+			fr = new FlightRecord();
+			fr.setnID(i);
+			fr.setsDateOfTravel("10-22");
+			fr.setsDepartureTime("1:23");
+			fr.setsSource("source");
+			fr.setsArrivalTime("arrival time");
+			fr.setsDestination("destination");
+			fr.setnNumberOfStops(2);
+			fr.setsClass("First");
+			fr.setdCost(123.00);
+			al.add(fr);
+		}
+		//end test data =======================
+		
+		
+		lRecords.setFlightRecordList(al);
+		
+		//request.setAttribute("SearchResults", lRecords);
+		request.setAttribute("Count", 1);
+		// Call data class here, iterate thru results
+		
+		RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/FlightSearchResults.jsp");
+		rq.forward(request, response);
+	
+	}
+
+}

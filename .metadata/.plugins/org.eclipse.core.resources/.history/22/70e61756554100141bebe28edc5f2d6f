@@ -1,6 +1,0 @@
-package flight.bizlogic;
-
-public class SiteControls {
-
-	public static String getLoginLink()
-}

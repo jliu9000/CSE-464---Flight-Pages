@@ -131,7 +131,7 @@
                prefix="localhost_access_log." suffix=".txt" pattern="common" resolveHosts="false"/>
         -->
 
-      <Context docBase="C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\HW1" path="/HW1" reloadable="true" source="org.eclipse.jst.jee.server:HW1"/></Host>
+      <Context docBase="C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\Flight464" path="/Flight464" reloadable="true" source="org.eclipse.jst.jee.server:Flight464"/></Host>
     </Engine>
   </Service>
 </Server>

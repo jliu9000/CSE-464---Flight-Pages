@@ -1,0 +1,16 @@
+<%@ page import="flight.bizlogic.User"%>
+<% 
+	
+
+	User user = null;
+	
+	user = (User) session.getAttribute("User");
+	
+	if (user == null){
+		response.sendRedirect("Login.jsp"); 
+	}
+
+
+
+
+%>

@@ -1,9 +1,0 @@
-package flight.bizlogic;
-
-public class test {
-	
-	public static void main(String args[]){
-		RecordFactory r = new RecordFactory();
-		System.out.println(r.toHTML());
-	}
-}

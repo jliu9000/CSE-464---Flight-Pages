@@ -1,0 +1,80 @@
+package flight.servlet;
+
+1import java.io.*;
+import java.util.*;
+
+/**
+ * @author Kyle Hanish , John Liu
+ *
+ *
+ * 
+ */
+public class Users {
+	HashMap<String,String> userAndPassword;
+	String userFilePath;
+	
+	
+	public Users(String path) throws IOException{
+		
+		userAndPassword = new HashMap<String,String>();
+		
+		userFilePath = path + "\\WEB-INF\\classes\\user.properties";
+		
+		File file = new File(userFilePath);
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		
+		String line;
+		while ((line = br.readLine()) != null) {
+			String[] tokens = line.split(":");
+			String sUserName = tokens[0].toString();
+			String sPassword = tokens[1].toString();
+			userAndPassword.put(sUserName.toLowerCase(), sPassword.toLowerCase());
+//			System.out.println(userAndPassword);
+		}
+		fr.close();
+		br.close();
+	}
+	
+	public boolean VerifyPassword(String sUserName,String sPassword){
+		
+		//has input, compare with hashed password in file
+		//check if they are equal, do necessary things based on true/false
+		String sStoredPassword = userAndPassword.get(sUserName);
+		if (sStoredPassword != null && sStoredPassword.equals(sPassword)){
+			return true;
+		}
+		else return false;
+	}
+	public boolean isUnique(String sUserName){
+		boolean bIsUnique = false;
+		String CurrentUser = userAndPassword.get(sUserName);
+		
+		if (CurrentUser == null){
+			bIsUnique = true;
+		}
+			
+		return bIsUnique;
+	}
+	public boolean addUser(String user, String password) throws IOException{
+		
+		//String hashedPW; //hash password
+		userAndPassword.put(user,password);
+		File file = new File(userFilePath);
+		BufferedWriter writer;
+		writer = new BufferedWriter(new FileWriter(file,true));
+		writer.write(user.toLowerCase()+":"+password.toLowerCase()+"\n");
+		
+		writer.flush();
+		writer.close();
+		
+//		System.out.println("add user: " + userAndPassword);
+		return true;
+	}
+	
+	public void save(){
+		//todo write to user.properties file
+		
+	}
+	
+}

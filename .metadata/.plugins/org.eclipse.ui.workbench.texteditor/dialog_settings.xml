@@ -2,27 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="182" key="DIALOG_Y_ORIGIN"/>
-		<item value="247" key="DIALOG_X_ORIGIN"/>
+		<item value="266" key="DIALOG_Y_ORIGIN"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
+		<item value="759" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="&#x09;&#x09;&#x09;&#x09;PrintWriter out = response.getWriter();" key="selection"/>
+		<item value="-color" key="selection"/>
 		<list key="findhistory">
-			<item value="&#x09;&#x09;&#x09;&#x09;PrintWriter out = response.getWriter();"/>
-			<item value="Login"/>
-			<item value="login"/>
-			<item value=" class=&apos;value&apos;"/>
-			<item value="nTotalRecords "/>
-			<item value=".ceil"/>
+			<item value="-color"/>
+			<item value="&#x09;&#x09;&#x09;&lt;form action=&apos;ViewAndBook&apos; method=post&gt;"/>
+			<item value="import"/>
+			<item value="jsp:getProperty"/>
+			<item value="idAndIncrement"/>
+			<item value="getIdAndIncrement"/>
+			<item value="Session"/>
+			<item value="session"/>
 		</list>
 		<list key="replacehistory">
+			<item value="sidebar.jsp"/>
 			<item value=""/>
 			<item value=".round"/>
 		</list>

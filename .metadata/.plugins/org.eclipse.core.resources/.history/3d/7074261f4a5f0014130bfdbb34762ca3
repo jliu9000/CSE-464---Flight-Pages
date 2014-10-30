@@ -1,0 +1,138 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font-family: "Verdana";
+	font-size:12px;
+	
+}
+
+div.sidebar {
+	color:white; 
+	border-style:none; 
+	float:left;
+	text-align:center;
+	width: 110px;
+}
+div.main {
+	float: left;
+}
+
+div.ErrorMessage{
+	color:red;
+}
+
+ul {
+	font-size:14px; 
+	list-style-type: none;
+	margin: 5px;
+    padding: 5px;
+	width: 80px;
+	height: 25px;
+	float: center;
+	text-align: center;
+}
+
+a {
+	color:gray;
+}
+
+a.sidebar {
+	font-weight:bold;
+	color:white;
+	display: block;
+}
+
+a:visited {
+	font-weight:bold;
+    color:white;
+}
+
+
+a:hover {
+	font-weight:bold;
+    color:red;
+}
+
+li {
+	background-color:#1975FF;
+	font-weight:bold;
+	padding:3px;
+}
+
+p {
+    font-size: 12px;
+    
+}
+
+p.PageTitle {
+    font-size: 20px;
+    color: #1975FF;
+    font-weight: bold;
+}
+
+p.subheading {
+	
+	font-size: 16px;
+	color: #5858DA;
+}
+
+p.message {
+	color: red;
+	text-align: center;
+}
+
+table {
+
+
+}
+
+th {
+    background-color: #1975FF;
+    color: white;
+    padding: 4px;
+    padding-left: 8px;
+	padding-right: 8px;
+	
+}
+
+tr {
+}
+
+tr.repeatalt {
+
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #E6E6E6;
+	
+}
+
+tr.repeat {
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+
+}
+
+td.button{
+	text-align: center;
+}
+
+td{
+	text-align: left;
+	padding: 4px;
+	
+}
+
+td.key{
+	font-weight: bold;
+}
+
+
+
+
+#login {
+    font-size:12px;
+}
+
+
