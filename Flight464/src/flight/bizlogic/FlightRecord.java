@@ -11,13 +11,11 @@ public class FlightRecord {
 	private int nNumberOfStops;
 	private double dCost;
 	private int nID;
+
 	
 	public FlightRecord(){}
 	
 	
-
-	// USE THE GETTERS/SETTERS BELOW FOR HW2 ==============================================================================
-
 	public String getsSource() {
 		return sSource;
 	}

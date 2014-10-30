@@ -1,0 +1,89 @@
+package flight.bizlogic;
+
+public class UserTransaction {
+	private int nFlightId;
+	private FlightRecord SelectedRecord = null;
+	private String sAccountHolder;
+	
+	private int nRoutingNumber;
+	private int nAccountNumber;
+	private int nSeatsPurchased;
+	private double dTransactionCost;
+	
+	
+	public String getsSource() {
+		return SelectedRecord.getsSource();
+	}
+
+
+	public void setsSource(String sSource) {
+		this.SelectedRecord.setsSource(sSource);
+	}
+
+
+	public String getsDestination() {
+		return SelectedRecord.getsDestination();
+	}
+
+
+	public void setsDestination(String sDestination) {
+		this.SelectedRecord.setsDestination(sDestination);
+	}
+
+
+	public String getsDateOfTravel() {
+		return SelectedRecord.getsDateOfTravel();
+	}
+
+
+	public void setsDateOfTravel(String sDateOfTravel) {
+		SelectedRecord.setsDateOfTravel(sDateOfTravel);
+	}
+
+
+	public String getsClass() {
+		return SelectedRecord.getsClass();
+	}
+
+
+	public void setsClass(String sClass) {
+		SelectedRecord.setsClass(sClass);
+	}
+
+
+	public int getnSeats() {
+		return SelectedRecord.getnSeats();
+	}
+	
+
+
+	public void setnSeats(int nSeats) {
+		this.nSeats = nSeats;
+	}
+
+
+	public String getsDepartureTime() {
+		return sDepartureTime;
+	}
+
+
+	public void setsDepartureTime(String sDepartureTime) {
+		this.sDepartureTime = sDepartureTime;
+	}
+
+
+	public String getsArrivalTime() {
+		return sArrivalTime;
+	}
+
+
+	public void setsArrivalTime(String sArrivalTime) {
+		this.sArrivalTime = sArrivalTime;
+	}
+
+
+	public int getnNumberOfStops() {
+		return nNumberOfStops;
+	}
+
+}

@@ -5,6 +5,6 @@
 <fullyQualifiedTypeName name="flight.bizlogic.User"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
-<fullyQualifiedTypeName name="flight.bizlogic.FlightRecord"/>
 <fullyQualifiedTypeName name="flight.bizlogic.Users"/>
+<fullyQualifiedTypeName name="flight.bizlogic.FlightRecord"/>
 </qualifiedTypeNameHistroy>

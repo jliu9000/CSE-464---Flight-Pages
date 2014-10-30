@@ -60,7 +60,7 @@ public class ViewAndBook extends HttpServlet {
 		if (sMessage.equals("")) {
 			request.setAttribute("nSeats", nSeats);
 			request.setAttribute("nFlightId", nFlightId);
-			
+			request.setAttribute("SelectedFlight", oSelectedFlight);
 			request.getRequestDispatcher("WEB-INF/Transaction.jsp").forward(request, response);
 		} else {
 			//redirect to error handling page
