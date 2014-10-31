@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.catalina.Session;
 
 import flight.bizlogic.*;
+import flight.data.DbData;
 /**
  * Servlet implementation class FlightSearchQuery
  */
@@ -39,6 +40,8 @@ public class FlightSearchQuery extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FlightRecordList lRecords = new FlightRecordList();
+		DbData oData = new DbData();
+		
 		String sMessage ="";
 		//form parameters
 		
@@ -46,7 +49,7 @@ public class FlightSearchQuery extends HttpServlet {
 		String sDestination = request.getParameter("sDestination");
 		String sDate = request.getParameter("sDate");
 		String sClass = request.getParameter("sClass");
-		int nSeats;
+		int nSeats = 0;
 		try{
 			nSeats = Integer.parseInt(request.getParameter("nSeats"));
 		} catch (Exception e) {
@@ -67,34 +70,18 @@ public class FlightSearchQuery extends HttpServlet {
 		}
 
 		if (sMessage.equals("")){
-			//load record
+			try {
+				lRecords.setFlightRecordList((ArrayList <FlightRecord>) oData.searchFlights(sSource, sDestination, sDate, nSeats, sClass));
+			} catch (Exception ex) {
+				sMessage += "Internal Error, please try again later";			
+			}
 		}
-		
-		//static test data ===================
-		ArrayList<FlightRecord> al = new ArrayList();
-		FlightRecord fr;
-		
-		for (int i=0; i<10; i++){
-			fr = new FlightRecord();
-			fr.setnID(i);
-			fr.setsDateOfTravel("10-22" + i);
-			fr.setsDepartureTime("1:23" +i);
-			fr.setsSource("source" +i);
-			fr.setsArrivalTime("arrival time" +i);
-			fr.setsDestination("destination" +i);
-			fr.setnNumberOfStops(i*2);
-			fr.setsClass("First" + i);
-			fr.setdCost(123.00 + i);
-			al.add(fr);
-		}
-		lRecords.setFlightRecordList(al);
-		//end test data =======================
-		
+				
 		
 		if (sMessage.equals("")){
 			request.setAttribute("SearchResults", lRecords);
 			request.setAttribute("Count", lRecords.getLength());	
-	
+			request.setAttribute("SearchResults", lRecords);
 			RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/FlightSearchResults.jsp");
 			rq.forward(request, response);
 		} else {

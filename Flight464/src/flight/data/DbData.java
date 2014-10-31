@@ -25,11 +25,12 @@ public class DbData {
 	
 	
 	
-	public DbData(String host, String db, String user, String password){
-		conHost = host;
-		conDB = db;
-		conUser = user;
-		conPassword = password;
+	public DbData(){
+		
+		conHost = DBCredentials.host;
+		conDB = DBCredentials.db;
+		conUser = DBCredentials.user;
+		conPassword = DBCredentials.password;
 	}
 	
 	
@@ -207,13 +208,13 @@ public class DbData {
 		param.add(sSource);
 		param.add(sDestination);
 
-		if (sClass == "first"){
+		if (sClass.equals("first")){
 			dbClassString = "first_class_reserved";
 		}
-		if (sClass == "economy"){
+		if (sClass.equals("economy")){
 			dbClassString = "economy_reserved";
 		}
-		if (sClass == "business"){
+		if (sClass.equals("business")){
 			dbClassString = "business_reserved";
 		}
 		
@@ -223,17 +224,23 @@ public class DbData {
 		System.out.println("start call");
 		
 		
-		String queryString = "SELECT * FROM cse464.flights WHERE source = ? AND destination = ? AND "+ dbClassString + " > 0 AND "+ dbClassString +" < ? AND departure >= ?"; 
+		String queryString = "SELECT * FROM cse464.flights WHERE source = ? AND destination = ? AND "+ dbClassString + " >= ? AND departure >= ? ORDER BY departure LIMIT 100"; 
 		
 		ResultSet rs = queryDB(queryString,param);
 		FlightRecord rf;
 		if (rs != null){
 			while (rs.next()){
+				
 				rf = new FlightRecord();
+				rf.setnID(rs.getInt("id"));
+
 				rf.setsSource(rs.getString("source"));
 				rf.setsDestination(rs.getString("destination"));
-				rf.setsDateOfTravel(rs.getString("departure"));	
-				
+				rf.setsDateOfTravel(rs.getString("departure").split(" ")[0]);	
+				rf.setsDepartureTime(rs.getString("departure").split(" ")[1].replace(":00.0", ""));
+				rf.setsArrivalTime(rs.getString("arrival").split(" ")[1].replace(":00.0", ""));
+				rf.setdCost(100 + Math.random() * 1000);
+
 				switch (sClass) {
 	            case "first": 	rf.setsClass("first");
 	            				rf.setnSeats(rs.getInt("first_class_reserved"));
@@ -293,6 +300,46 @@ public class DbData {
 		return nRemainingBalance;
 	}
 	
+	public FlightRecord GetFlight(int nFlightId, String sClass) throws SQLException{
+		String q = "Select * from cse464.flights WHERE flightId = ?";
+		ArrayList<Object> param = new ArrayList<Object>();
+		param.add(nFlightId);
+		FlightRecord rf = new FlightRecord();
+		ResultSet rs = queryDB(q, param);
+		
+		if (rs != null){
+			
+				rf = new FlightRecord();
+				rf.setnID(rs.getInt("id"));
+
+				rf.setsSource(rs.getString("source"));
+				rf.setsDestination(rs.getString("destination"));
+				rf.setsDateOfTravel(rs.getString("departure"));	
+				rf.setsDepartureTime(rs.getString("departure").split(" ")[1].replace(":00.0", ""));
+				rf.setsArrivalTime(rs.getString("arrival").split(" ")[1].replace(":00.0", ""));
+				switch (sClass) {
+	            case "first": 	rf.setsClass("first");
+	            				rf.setnSeats(rs.getInt("first_class_reserved"));
+	            				break;
+	            case "economy": rf.setsClass("economy");
+								rf.setnSeats(rs.getInt("economy_reserved"));
+								break;
+	            case "business":rf.setsClass("business");
+								rf.setnSeats(rs.getInt("business_reserved"));
+								break;
+	            default: rf.setnSeats(0);
+	                     break;
+				}//end switch
+				
+				
+			
+			
+			
+		}
+		conn.close();
+		return rf;
+	}
+	
 	public boolean AddBooking(int nFlightID,int nNumSeats,String sSeatingClass,int nAccountId,int nUserId,int nTotalCost) throws SQLException{
 		ArrayList<Object> param =  new ArrayList<Object>();
 		String queryString = "insert into khanish.Bookings (BookingDate, FlightID,SeatingClass, Number_of_seats,AccountId, UserId,TotalCost) VALUES (?,?,?,?,?,?,?)"; 
@@ -311,7 +358,7 @@ public class DbData {
 
 		int rs = updateDB(queryString,param);
 		
-	
+		conn.close();
 		return true;
 	}
 }

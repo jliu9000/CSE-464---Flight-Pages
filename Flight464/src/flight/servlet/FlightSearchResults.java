@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import flight.bizlogic.FlightRecord;
+import flight.data.DbData;
 
 /**
  * Servlet implementation class FlightSearchResults
@@ -36,45 +37,52 @@ public class FlightSearchResults extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String sMessage = "";
+		DbData oData = new DbData();
 		FlightRecord fr = null;
 		
-		/****************************************************************************************
-		Integer nFlightId = Integer.parseInt(request.getParameter("nFlightId"));
+		Integer nFlightId = 0;
+		Double dCost = 0.0;
+		String sClass = "";
 		
-		if (nFlightId == null){
-			sMessage = "Something went wrong, please go back and try again <br>";
-		} else {
-			//get flight record
+		
+		try{
+			nFlightId = Integer.parseInt(request.getParameter("nFlightId"));
+		} catch (Exception ex) {
+			sMessage += "Invalid flight id, please try again <BR>";
+		}
+		try{
+			dCost = Double.parseDouble(request.getParameter("dCost"));
+		} catch (Exception ex){
+			sMessage += "Invalid cost <BR>";
+		}
+		sClass = (String) request.getParameter("sClass");
+		if (sClass == null || sClass.equals("")){
+			sMessage += "Invalid seat class <BR>";
+		}
+		
+		try{
+			fr = oData.GetFlight(nFlightId, sClass);
+		} catch (Exception ex){
+			sMessage += "Internal Error";
 		}
 		
 		if (fr == null){
 			sMessage += "Unable to retrieve the selected flight, please go back and try again <br>";
 		}
-		****************************************************************************************/
 		
-		//test record ========================
-		fr = new FlightRecord();
-		fr.setnID(1);
-		fr.setsDateOfTravel("10-22");
-		fr.setsDepartureTime("1:23");
-		fr.setsSource("source");
-		fr.setsArrivalTime("arrival time");
-		fr.setsDestination("destination");
-		fr.setnNumberOfStops(2);
-		fr.setsClass("First");
-		fr.setdCost(123.00);
-		fr.setnSeats(3);
-		//end test record ====================
+		
 		
 		if (sMessage.equals("")){
+			fr.setdCost(dCost);
+			fr.setsClass(sClass);
 			request.setAttribute("SelectedFlight", fr);
 			request.setAttribute("nAvailableSeats", fr.getnSeats());
 			RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/ViewAndBook.jsp");
 			rq.forward(request, response);
 		} else {
-			//redirect to error handling 
+			request.setAttribute("sMessage", sMessage);
+			request.getRequestDispatcher("WEB-INF/FlightSearchResults.jsp").forward(request,response);
 		}
 	}
 

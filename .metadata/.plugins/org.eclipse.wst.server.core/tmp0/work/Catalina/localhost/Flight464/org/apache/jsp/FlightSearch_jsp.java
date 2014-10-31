@@ -128,9 +128,9 @@ public final class FlightSearch_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("\t\t\t\t\t<td>Class:</td>\r\n");
       out.write("\t\t\t\t\t<td> \r\n");
       out.write("\t\t\t\t\t\t<select name=\"sClass\">\r\n");
-      out.write("\t\t\t\t\t\t<option value=\"first\">First Class</option>\r\n");
-      out.write("\t\t\t\t\t\t<option value=\"business\">Business</option>\r\n");
-      out.write("\t\t\t\t\t\t<option value=\"economy\">Economy</option>\r\n");
+      out.write("\t\t\t\t\t\t\t<option value=\"first\">First Class</option>\r\n");
+      out.write("\t\t\t\t\t\t\t<option value=\"business\">Business</option>\r\n");
+      out.write("\t\t\t\t\t\t\t<option value=\"economy\">Economy</option>\r\n");
       out.write("\t\t\t\t\t\t</select>\r\n");
       out.write("\t\t\t\t\t</td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");

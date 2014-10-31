@@ -32,16 +32,16 @@
 					<td>Flight Destination:</td><td>  <input type="text" name="sDestination"></td>
 				</tr>
 				<tr>
-					<td>Date of Travel: </td><td> <input type="text" name="sDate"></td>
+					<td>Date of Travel (Starting on or later): </td><td> <input type="text" name="sDate"></td>
 					<td>Number of Seats: </td><td> <input type="text" name="nSeats"></td>
 				</tr>
 				<tr>
 					<td>Class:</td>
 					<td> 
 						<select name="sClass">
-						<option value="first">First Class</option>
-						<option value="business">Business</option>
-						<option value="economy">Economy</option>
+							<option value="first">First Class</option>
+							<option value="business">Business</option>
+							<option value="economy">Economy</option>
 						</select>
 					</td>
 				</tr>

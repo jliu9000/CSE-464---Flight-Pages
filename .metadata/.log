@@ -3399,3 +3399,330 @@ java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-P
 	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2375)
 	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:508)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SESSION 2014-10-30 17:45:59.081 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_03
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 17:51:54.363
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 17:57:14.956
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 18:03:58.575
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 18:18:48.479
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 18:24:51.227
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 18:37:55.506
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 18:42:58.525
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 18:48:04.345
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 18:53:44.374
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 18:59:21.326
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 19:04:25.935
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 19:09:32.940
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 19:18:45.103
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 19:25:42.641
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 19:30:56.943
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 19:45:32.965
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 19:50:40.112
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 19:56:49.125
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 20:08:57.464
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2014-10-30 20:17:08.778
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\John\Documents\GitHub\CSE-464---Flight-Pages\.metadata\.plugins\org.eclipse.core.resources\.projects\RemoteSystemsTempFiles\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1685)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1768)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1167)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1109)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

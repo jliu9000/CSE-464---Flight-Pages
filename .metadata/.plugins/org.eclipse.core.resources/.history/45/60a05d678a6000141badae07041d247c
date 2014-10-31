@@ -1,0 +1,10 @@
+package flight.data;
+
+public class DBCredentials {
+	protected final String host = "";
+	protected final String db = "";
+	protected final String user = "";
+	protected final String password = "";
+	
+	
+}

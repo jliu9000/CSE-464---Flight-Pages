@@ -23,7 +23,7 @@
 		}
 	  	
 		Integer nTotalRecords;
-	  	nTotalRecords = (Integer) request.getAttribute("Count");  	
+	  	nTotalRecords = (Integer) request.getAttribute("Count");
 	  	
 	%>
 	
@@ -60,6 +60,8 @@
 				<TD> <jsp:getProperty name="SearchResults" property="cost" /> </TD>
 				<TD class='button'>	
 					<form action="FlightSearchResults" method=post>
+						<input type='hidden' id='dCost' value='<jsp:getProperty name="SearchResults" property="cost" />' />
+						<input type='hidden' id='sClass' value='<jsp:getProperty name="SearchResults" property="sClass" />' />
 						<input type='hidden' id='nFlightId' value='<jsp:getProperty name="SearchResults" property="idAndIncrement" />'>
 						<input type='submit' value='View and Book'>
 					</form>

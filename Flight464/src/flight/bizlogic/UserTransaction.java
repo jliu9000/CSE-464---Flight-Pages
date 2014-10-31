@@ -13,8 +13,13 @@ public class UserTransaction {
 	
 	
 	
+	public double getdTransactionCost(){
+		return dTransactionCost;
+	}
 	
-	
+	public void setdTransactionCost(int cost){
+		this.dTransactionCost = cost;
+	}
 	
 	public int getnFlightId() {
 		return nFlightId;

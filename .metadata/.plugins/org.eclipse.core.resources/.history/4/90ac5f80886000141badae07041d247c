@@ -1,0 +1,5 @@
+package flight.data;
+
+public class DBCredentials {
+
+}
