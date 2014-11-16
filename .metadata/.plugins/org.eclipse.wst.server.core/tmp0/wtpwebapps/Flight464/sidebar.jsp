@@ -8,6 +8,10 @@
 
 </head>
 
+
+
+
+
 <jsp:useBean id="User" class="flight.bizlogic.User" scope="session" /> 
 
 <body>
@@ -15,13 +19,25 @@
 
 		
 		<ul class="sidebar">
-			<li><a href="./Login.jsp">Logout</a></li>
+			<li>
+				<form action="Logout" method=post>
+					<input type='hidden' name='Logout' value='true'>
+					<input type='submit' value='Logout'>
+				</form>
+
+			</li>
 			<li> </li>
 			<li> </li>
 			<li>Welcome, <jsp:getProperty name="User" property="username" />!</li>
 			<li> </li>
+			<li> </li>
 			<li><a href="./FlightSearch.jsp">Home</a></li>
-			<li><a href="./BookingHistory.jsp">Booking History</a></li>
+			<li>
+				<form action="BookingHistory" method=post>	
+					<input type='hidden' name='BookingHistory' value='true'>
+					<input type='submit' value='Booking History'>
+				</form>
+			</li>
 			<li></li>
 		</ul>
 

@@ -31,7 +31,7 @@
 		<p class='subheading'>Flight Information:</p>
 		<table>
 			<tr>
-				<td class='key'>Account Holder:</td><td><%=request.getParameter("sAccountHolder")%></td>
+				<td class='key'>Account Holder:</td><td><%=request.getAttribute("sAccountHolder")%></td>
 			</tr>
 			<tr>
 				<td class='key'>Flight Number: </td><td><jsp:getProperty name="ConfirmedFlight" property="nID" /></td>
@@ -47,7 +47,7 @@
 			</tr>
 		</table>
 		<br>
-		<p><b>Cost:</b> $<jsp:getProperty name="ConfirmedFlight" property="dCost" /></p>
+		<p><b>Cost:</b> $<%=request.getAttribute("dTotalCost") %></p>
 		<br>
 		
 		<a href="FlightSearch.jsp"><button>Home</button></a>

@@ -71,9 +71,10 @@
 		<table>
 		<tr><td><a href="FlightSearchResults.jsp"><button type="button" onclick="goBack()">Back</button></a></td>
 		<td>	
-				<input type="hidden" id="dCost" value='<jsp:getProperty name="SelectedFlight" property="dCost" />'>
-				<input type="hidden" id="dCost" value='<jsp:getProperty name="SelectedFlight" property="sClass" />'>
-				<input type="hidden" id="nFlightId" value='<jsp:getProperty name="SelectedFlight" property="nID" />'>
+				<input type="hidden" name="dCost" value='<jsp:getProperty name="SelectedFlight" property="dCost" />'>
+				<input type="hidden" name="nSeats" value='<jsp:getProperty name="SelectedFlight" property="nSeats" />'>
+				<input type="hidden" name="sClass" value='<jsp:getProperty name="SelectedFlight" property="sClass" />'>			
+				<input type="hidden" name="nFlightId" value='<jsp:getProperty name="SelectedFlight" property="nID" />'>
 				<input type="submit" value="Submit" style="font-weight:bold;"></input>
 		</td>
 		<td><button type=button onclick="goHome()">Home</button></td></tr>

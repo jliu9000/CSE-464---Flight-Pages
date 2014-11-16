@@ -1,0 +1,7 @@
+<classpath>
+  <container id="Flight464!org.eclipse.jst.j2ee.internal.web.container">
+    <entry id="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/WebContent/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar">
+      <source-attachment-path>/Flight464/WebContent/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar</source-attachment-path>
+    </entry>
+  </container>
+</classpath>

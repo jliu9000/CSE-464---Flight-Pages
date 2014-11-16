@@ -13,14 +13,7 @@
 </head>
 
 <% 
-	Integer nSeats = 0;
-	if (request.getAttribute("nSeats") == null){
-		request.setAttribute("sMessage", "Invalid number of seats");
-		request.getRequestDispatcher("ViewAndBook.jsp").forward(request, response);	
-	} else {
-		nSeats = (Integer) request.getAttribute("nSeats");	
-	
-	}
+
 	
 %>
 
@@ -56,23 +49,26 @@
 			</tr>
 		</table>
 		<br>
-		<p><b>Cost:</b> $<jsp:getProperty name="SelectedFlight" property="dCost" /></p>
+		<p><b>Cost:</b> $ <jsp:getProperty name="SelectedFlight" property="dCost" /></p>
 		
 		<p class='subheading'>Payment Information:</p>
 		
-		<form action='ConfirmTransaction' method=post>
-		<input type="hidden" name="nFlightId" value="<jsp:getProperty name="SelectedFlight" property="nID" />"/>
-		<input type="hidden" name="nSeats" value="<%=nSeats %>"/>
+		<form action='TransactionConfirmation' method=post>
+		<input type="hidden" name="nFlightId" value='<jsp:getProperty name="SelectedFlight" property="nID" />'/>
+		<input type="hidden" name="nSeats" value='<jsp:getProperty name="SelectedFlight" property="nQueuedSeats" />' />
+		<input type="hidden" name="sClass" value='<jsp:getProperty name="SelectedFlight" property="sClass" />' />
+		<input type="hidden" name="dCost" value='<jsp:getProperty name="SelectedFlight" property="dCost" />'/>
+		
 		
 			<table>
 				<tr>
-					<td class='key'>Account Holder's Name: </td><td><input type="text" name="sAccountHolder"></td>
+					<td class='key'>Account Holder's Name: </td><td><input type="text" name="sAccountHolder" /></td>
 				</tr>
 				<tr>
-					<td class='key'>Routing Number: </td><td><input type="text" name="nRoutingNumber"></td>
+					<td class='key'>Routing Number: </td><td><input type="text" name="nRoutingNumber" /></td>
 				</tr>
 				<tr>
-					<td class='key'>Account Number: </td><td><input type="password" name="nAccountNumber"></td>
+					<td class='key'>Account Number: </td><td><input type="password" name="nAccountNumber" /></td>
 				</tr>
 				<tr>
 					<td></td><td></td>

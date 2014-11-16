@@ -1,6 +1,7 @@
 package flight.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,11 +41,12 @@ public class FlightSearchResults extends HttpServlet {
 		String sMessage = "";
 		DbData oData = new DbData();
 		FlightRecord fr = null;
+		//ArrayList<FlightRecord> lShoppingCart = null;
+		//HttpSession session = request.getSession();
 		
 		Integer nFlightId = 0;
 		Double dCost = 0.0;
 		String sClass = "";
-		
 		
 		try{
 			nFlightId = Integer.parseInt(request.getParameter("nFlightId"));
@@ -61,16 +63,25 @@ public class FlightSearchResults extends HttpServlet {
 			sMessage += "Invalid seat class <BR>";
 		}
 		
-		try{
-			fr = oData.GetFlight(nFlightId, sClass);
-		} catch (Exception ex){
-			sMessage += "Internal Error";
+		if (sMessage.equals("")){
+			try{
+				fr = oData.GetFlight(nFlightId, sClass);
+			} catch (Exception ex){
+				sMessage += "Internal Error";
+				ex.printStackTrace();
+			}
 		}
 		
 		if (fr == null){
 			sMessage += "Unable to retrieve the selected flight, please go back and try again <br>";
 		}
 		
+		/**
+		lShoppingCart = (ArrayList<FlightRecord>) session.getAttribute("lShoppingCart");
+		if (lShoppingCart == null){
+			lShoppingCart = new ArrayList<FlightRecord>();
+		}
+		**/
 		
 		
 		if (sMessage.equals("")){

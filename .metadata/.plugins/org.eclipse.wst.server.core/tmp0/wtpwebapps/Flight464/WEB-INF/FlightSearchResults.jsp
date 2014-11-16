@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="flight.bizlogic.*"%>
+<%@ page import="flight.bizlogic.*, java.util.ArrayList"%>
 <%@ include file="LoginHelper.jsp" %>
 <%@ include file="ErrorMessageHelper.jsp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,25 +13,24 @@
 <title>Flight Search Results</title>
 
 </head>
+	<%  
+		int nTotalRecords = 0;
+		ArrayList<FlightRecord> alRecords = (ArrayList <FlightRecord>) request.getAttribute("lSearchResults");
+		if (alRecords == null){
+			sMessage = "Unable to load records, please try again";
+		} else {
+			nTotalRecords = alRecords.size();
+		}
+	  	
+	%>
+
 <body>
 	<div id='sidebar' class='sidebar'>
         <jsp:include page="../sidebar.jsp" />
 	</div>
-	
-	<%  
-		if (request.getAttribute("Count") == null || request.getAttribute("SearchResults") == null){
-			response.sendRedirect("FlightSearch.jsp");
-		}
-	  	
-		Integer nTotalRecords;
-	  	nTotalRecords = (Integer) request.getAttribute("Count");
-	  	
-	%>
-	
-	<jsp:useBean id="SearchResults" class="flight.bizlogic.FlightRecordList" scope="request" /> 
-	
-	
-	<div class="main">	
+
+		
+	<div class='main'>	
 		
 		<br><br>
 		<p class="PageTitle">Flight Search Results</p>
@@ -50,23 +50,26 @@
 			</TR>
 			
 		
-			<%for (int i = 0; i<nTotalRecords; i++){%>
-			<tr class='<%= i % 2 == 1 ? "repeatalt" : "repeat" %>'>
-				<TD> <jsp:getProperty name="SearchResults" property="flightId" /> </TD>
-				<TD> <jsp:getProperty name="SearchResults" property="date" /> </TD>
-				<TD> <jsp:getProperty name="SearchResults" property="departureTime" /> </TD>
-				<TD> <jsp:getProperty name="SearchResults" property="arrivalTime" /> </TD>
-				<TD> <jsp:getProperty name="SearchResults" property="numberOfStops" /> </TD>
-				<TD> <jsp:getProperty name="SearchResults" property="cost" /> </TD>
-				<TD class='button'>	
-					<form action="FlightSearchResults" method=post>
-						<input type='hidden' id='dCost' value='<jsp:getProperty name="SearchResults" property="cost" />' />
-						<input type='hidden' id='sClass' value='<jsp:getProperty name="SearchResults" property="sClass" />' />
-						<input type='hidden' id='nFlightId' value='<jsp:getProperty name="SearchResults" property="idAndIncrement" />'>
-						<input type='submit' value='View and Book'>
-					</form>
-				</td>			
-			</tr>
+			<%
+				FlightRecord frTemp;			
+				for (int i = 0; i<nTotalRecords; i++){%>
+				<tr class='<%= i % 2 == 1 ? "repeatalt" : "repeat" %>'>
+					<% frTemp = alRecords.get(i);  %>
+					<TD><%= frTemp.getnID() %></TD>
+					<TD><%= frTemp.getsDateOfTravel() %></TD>
+					<TD><%= frTemp.getsDepartureTime() %></TD>
+					<TD><%= frTemp.getsArrivalTime() %></TD>
+					<TD><%= frTemp.getnNumberOfStops() %></TD>
+					<TD><%= frTemp.getdCost() %></TD>
+					<TD class='button'>	
+						<form action="FlightSearchResults" method=post>
+							<input type='hidden' name='nFlightId' value='<%= frTemp.getnID() %>'>
+							<input type='hidden' name='dCost' value='<%= frTemp.getdCost() %>' />
+							<input type='hidden' name='sClass' value='<%= frTemp.getsClass() %>' />
+							<input type='submit' value='View and Book'>
+						</form>
+					</td>			
+				</tr>
 			<%} %>
 			
 		</table>

@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="CSS/FlightStyles.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<%@ page import="flight.bizlogic.RecordFactory, flight.bizlogic.FlightRecord,java.util.ArrayList"%>
+<%@ page import="flight.bizlogic.FlightRecord,java.util.ArrayList"%>
 
 
 <title>Booking History</title>
@@ -18,18 +18,16 @@
         </script>
 	</div>
 
-		<% RecordFactory rf = new RecordFactory(0);
-			ArrayList<FlightRecord> oRecordsList;
-			rf.generateRecords();
-			
-		 	oRecordsList = rf.getRecords();
+		<% 
+			ArrayList<FlightRecord> alBookings = (ArrayList<FlightRecord>) request.getSession().getAttribute("alBooking");
+		
 		   //can add list of user's transactions here later on.
 		 %>
 		 
 	<div class='main'>
 		
 		<p class="PageTitle">Booking History</p>
-		<p class="subheading"><%=oRecordsList.size() %> Total Records</p>
+		<p class="subheading"><%=alBookings.size() %> Total Records</p>
 		
 		<table>
 			<TR>
@@ -37,12 +35,12 @@
 			</TR> 
 			<% 
 			int i = 1;
-			for(FlightRecord r : oRecordsList) {
+			for(FlightRecord r : alBookings) {
 			i++;
 			%>
 			<tr class='<%= i % 2 == 1 ? "repeatalt" : "repeat" %>'>
-				<TD class='key'><%=r.getID() %></TD>
-				<TD><%=r.getDateOfTravel() %></TD>
+				<TD class='key'><%=r.getnID() %></TD>
+				<TD><%=r.getsDateOfTravel() %></TD>
 			</TR>
 			<% } %>
 		</table>

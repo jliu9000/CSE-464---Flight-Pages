@@ -42,6 +42,10 @@ public class FlightRecordList {
 		return _lFlightRecord.get(nCurrentRecord-1).getnID();
 	}
 	
+	public String getsClass(){
+		return _lFlightRecord.get(nCurrentRecord).getsClass();
+	}
+	
 	public int getLength(){
 		return _lFlightRecord.size();
 	}

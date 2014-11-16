@@ -6,6 +6,7 @@ public class FlightRecord {
 	private String sDateOfTravel; 
 	private String sClass;
 	private int nSeats;
+	private int nQueuedSeats;
 	private String sDepartureTime;
 	private String sArrivalTime;
 	private int nNumberOfStops;
@@ -14,6 +15,14 @@ public class FlightRecord {
 
 	
 	public FlightRecord(){}
+	
+	public int getnQueuedSeats(){
+		return nQueuedSeats;
+	}
+	
+	public void setnQueuedSeats(int nQueuedSeats){
+		this.nQueuedSeats = nQueuedSeats;
+	}
 	
 	
 	public String getsSource() {

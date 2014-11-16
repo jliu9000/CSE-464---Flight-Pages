@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.Timestamp;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.*;
 import flight.bizlogic.*;
 import java.text.*;
@@ -83,7 +82,7 @@ public class DbData {
 				}
 				i++;
 			}
-			System.out.println("final query: "+ps);
+			//System.out.println("final query: "+ps);
 			
 			rs = ps.executeQuery();
 		}catch (SQLException e){
@@ -164,43 +163,40 @@ public class DbData {
 	}
 	
 	
-	public List<String> getUserCredentials() throws SQLException{
+	public String getUserCredentials(String sUsername) throws SQLException{
 		
-		ResultSet rs1 = queryDBNoParams("SELECT * FROM khanish.Users");
-		List<String> lEmailList = new ArrayList<String>();
-				
-		//test stuff
-		rs1.last();
-		System.out.println("number of results: " + rs1.getRow());
-		rs1.beforeFirst();
-		//end test stuff
-				
+		
+		ArrayList<Object> param =  new ArrayList<Object>();
+		param.add(sUsername);
+		String sUsernamePass;
+			
+		ResultSet rs1 = queryDB("SELECT * FROM khanish.Users Where email=?",param);
+		
 		if (rs1 != null){
-			while (rs1.next()){
-				lEmailList.add(rs1.getString("email"));
-				//System.out.println("email: "+rs1.getString("email"));
-			}
+			rs1.next();
+			sUsernamePass = rs1.getString("password");
 		}
+		else sUsernamePass=null;
 		conn.close();
-		return lEmailList;
+		return sUsernamePass;
 	}
 	
-	public boolean addUser(String sUserName, String sPassword, java.util.Date dDOB) throws SQLException{
+	
+	public boolean addUser(String sUserName, int sPassword) throws SQLException{
 		
 		
 		ArrayList<Object> param =  new ArrayList<Object>();
 		param.add(sUserName);
 		param.add(sPassword);
-		param.add(dDOB);
 		//System.out.println(sUserName + sPassword);
 		int rs = updateDB("Insert INTO khanish.Users (email,password) VALUES (?,?)",param);
 		
-		System.out.println("What #rows returned by the RS1 in insert: " + rs);
+		//System.out.println("What #rows returned by the RS1 in insert: " + rs);
 		conn.close();
 		return true;
 	}
 	
-	public List<FlightRecord> searchFlights(String sSource,String sDestination, String sDateOfTravel,int nNumSeats,String sClass) throws SQLException{
+	public List<FlightRecord> searchFlights(String sSource,String sDestination, String sDateStart, int nNumSeats,String sClass) throws SQLException{
 		List<FlightRecord> lReturnResults = new ArrayList<FlightRecord>();
 		String dbClassString = "";
 		
@@ -219,9 +215,9 @@ public class DbData {
 		}
 		
 		param.add(nNumSeats);
-		param.add(sDateOfTravel);
+		param.add(sDateStart);
 		
-		System.out.println("start call");
+		//System.out.println("start call");
 		
 		
 		String queryString = "SELECT * FROM cse464.flights WHERE source = ? AND destination = ? AND "+ dbClassString + " >= ? AND departure >= ? ORDER BY departure LIMIT 100"; 
@@ -239,7 +235,7 @@ public class DbData {
 				rf.setsDateOfTravel(rs.getString("departure").split(" ")[0]);	
 				rf.setsDepartureTime(rs.getString("departure").split(" ")[1].replace(":00.0", ""));
 				rf.setsArrivalTime(rs.getString("arrival").split(" ")[1].replace(":00.0", ""));
-				rf.setdCost(100 + Math.random() * 1000);
+				rf.setdCost(Math.round((100 + Math.random() * 1000)*100)/100);
 
 				switch (sClass) {
 	            case "first": 	rf.setsClass("first");
@@ -266,42 +262,67 @@ public class DbData {
 	}
 	
 	//assume theres only one account with each user
-	public int completeTransaction(int nUserID,int nCost) throws SQLException{
-		int nCurrentBalance = 0;
-		int nRemainingBalance = 0; 
+	public double completeTransaction(int nUserId, int nAccountId, int nRoutingNumber, double dCost) throws SQLException{
+		double dCurrentBalance = 0;
+		double dRemainingBalance = 0; 
 		
 		ArrayList<Object> param =  new ArrayList<Object>();
-		param.add(nUserID);
-		System.out.println("start call");
+		param.add(nAccountId);
+		param.add(nRoutingNumber);
+		//System.out.println("start call");
 			
-		String queryString = "Select * from khanish.Accounts WHERE HolderId=?"; 
+		String queryString = "Select * from khanish.Accounts WHERE HolderId=? AND RoutingNumber=?"; 
 		
 		ResultSet rs = queryDB(queryString,param);
 		if (rs != null){
 			while (rs.next()){
 				
-				nCurrentBalance=rs.getInt("Balance");
-				System.out.println(nCurrentBalance);
+				dCurrentBalance=rs.getDouble("Balance");
+				System.out.println(dCurrentBalance);
 			}
 		}
 		
-		nRemainingBalance = nCurrentBalance - nCost;
+		dRemainingBalance = dCurrentBalance - dCost;
 		
 		param.clear();
-		param.add(nRemainingBalance);
-		param.add(nUserID);
-		queryString = "Update khanish.Accounts SET Balance=? WHERE HolderId=?";
+		param.add(dRemainingBalance);
+		param.add(nAccountId);
+		param.add(nRoutingNumber);
+		queryString = "Update khanish.Accounts SET Balance=? WHERE HolderId=? AND RoutingNumber=?";
 		
 		updateDB(queryString,param);
 		
 		
 		conn.close();
 		
-		return nRemainingBalance;
+		return dRemainingBalance;
+	}
+
+	public double getBalance(int nRoutingNumber, int nAccountNumber) throws SQLException{
+		double dCurrentBalance = 0;
+		
+		ArrayList<Object> param =  new ArrayList<Object>();
+		param.add(nRoutingNumber);
+		param.add(nAccountNumber);
+		System.out.println("start call");
+			
+		String queryString = "Select * from khanish.Accounts WHERE HolderId=? AND RoutingNumber=?"; 
+		
+		ResultSet rs = queryDB(queryString,param);
+		if (rs != null){
+			rs.next();
+			dCurrentBalance=rs.getInt("Balance");			
+		} else {
+			dCurrentBalance=0;
+		}
+		
+		conn.close();
+		
+		return dCurrentBalance;
 	}
 	
 	public FlightRecord GetFlight(int nFlightId, String sClass) throws SQLException{
-		String q = "Select * from cse464.flights WHERE flightId = ?";
+		String q = "Select * from cse464.flights WHERE id = ?";
 		ArrayList<Object> param = new ArrayList<Object>();
 		param.add(nFlightId);
 		FlightRecord rf = new FlightRecord();
@@ -310,11 +331,12 @@ public class DbData {
 		if (rs != null){
 			
 				rf = new FlightRecord();
+				rs.next();
 				rf.setnID(rs.getInt("id"));
 
 				rf.setsSource(rs.getString("source"));
 				rf.setsDestination(rs.getString("destination"));
-				rf.setsDateOfTravel(rs.getString("departure"));	
+				rf.setsDateOfTravel(rs.getString("departure").split(" ")[0]);	
 				rf.setsDepartureTime(rs.getString("departure").split(" ")[1].replace(":00.0", ""));
 				rf.setsArrivalTime(rs.getString("arrival").split(" ")[1].replace(":00.0", ""));
 				switch (sClass) {
@@ -340,9 +362,9 @@ public class DbData {
 		return rf;
 	}
 	
-	public boolean AddBooking(int nFlightID,int nNumSeats,String sSeatingClass,int nAccountId,int nUserId,int nTotalCost) throws SQLException{
+	public boolean AddBooking(int nFlightID,int nNumSeats,String sSeatingClass,int nAccountId,int nUserId,double dTotalCost, String sDateOfFlight) throws SQLException{
 		ArrayList<Object> param =  new ArrayList<Object>();
-		String queryString = "insert into khanish.Bookings (BookingDate, FlightID,SeatingClass, Number_of_seats,AccountId, UserId,TotalCost) VALUES (?,?,?,?,?,?,?)"; 
+		String queryString = "insert into khanish.Bookings (BookingDate, FlightID,SeatingClass, Number_of_seats,AccountId, UserId,TotalCost, DateOfFlight) VALUES (?,?,?,?,?,?,?,?)"; 
 		
 		java.util.Date date = new java.util.Date();
 		java.sql.Date sqlDate = new java.sql.Date( date.getTime() );
@@ -354,11 +376,54 @@ public class DbData {
 		param.add(nNumSeats);
 		param.add(nAccountId);
 		param.add(nUserId);
-		param.add(nTotalCost);
+		param.add(dTotalCost);
+		param.add(sDateOfFlight);
 
 		int rs = updateDB(queryString,param);
 		
 		conn.close();
 		return true;
 	}
+	
+	public ArrayList GetBookings (int nUserId) throws SQLException{
+		ArrayList<FlightRecord> al = new ArrayList<FlightRecord>();
+		ArrayList<Object> param =  new ArrayList<Object>();
+		String queryString = "SELECT FlightId, DateOfFlight FROM khanish.Bookings WHERE UserId = ?"; 
+		param.add(nUserId);
+		
+		ResultSet rs = queryDB(queryString,param);
+		FlightRecord rf;
+		if (rs != null){
+			while (rs.next()){
+				
+				rf = new FlightRecord();
+				rf.setnID(rs.getInt("FlightId"));
+				rf.setsDateOfTravel(rs.getString("DateOfFlight"));				
+				al.add(rf);
+				
+				//System.out.println(rs.getRow());
+			}
+		}		
+		//System.out.println("num rows returned: " + lReturnResults.size());
+		conn.close();
+		
+		return al;
+	}
+	
+	public int getUserId (String UserName) throws SQLException{
+		ArrayList<Object> param =  new ArrayList<Object>();
+		String queryString = "SELECT * FROM khanish.Users WHERE email = ?"; 
+		param.add(UserName);
+		
+		ResultSet rs = queryDB(queryString,param);
+		if (rs != null){
+			while (rs.next()){
+				
+				return rs.getInt("userId");
+			}
+		}		
+		//System.out.println("num rows returned: " + lReturnResults.size());
+		return 0;
+	}
+
 }

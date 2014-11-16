@@ -1,6 +1,8 @@
 package flight.servlet;
 
+
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +11,10 @@ import javax.servlet.http.HttpSession;
 
 import flight.bizlogic.User;
 import flight.bizlogic.Users;
+import flight.bizlogic.Users;
+import flight.data.DbData;
 
+import java.sql.SQLException;
 import java.util.*;
 import java.io.*;
 /**
@@ -39,32 +44,55 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 				
-		
-				String path = this.getServletContext().getRealPath("/");
-				Users newUser = new Users(path);
+				System.out.println("In here");
+
+				//Users newUser = new Users(path);
 				String sUserName = request.getParameter("Username");
 				String sPassword = request.getParameter("Password");
-				boolean ValidLogin = newUser.VerifyPassword(sUserName, sPassword);
+				String sMessage;
 				
-				if (ValidLogin){
-					//set session
-					HttpSession session = request.getSession(true);
-					User user = new User();
-					//Do we need a userId property?  If not we can delete this later
-					//user.setnUserId(1);
-					user.setUsername(sUserName);
-					session.setAttribute("User", user);
-					response.sendRedirect("FlightSearch.jsp");
+				
+				DbData dbData = new DbData();
+				String sReturnPass = null;
+				
+				try {
+					sReturnPass = dbData.getUserCredentials(sUserName);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					System.out.println("sql exceptions for get user credential");
+					sMessage = "Invalid User, please try again, or register";
 				}
-				else response.sendRedirect("Registration.jsp");
+				if (sReturnPass == null){
+					sMessage = "Invalid Login or Password";
+					
+					request.setAttribute("sMessage", sMessage);
+					request.getRequestDispatcher("Login.jsp").forward(request,response);
+				}else{
+					int hashPass = sPassword.hashCode();
+					String sHassPass = String.valueOf(hashPass);
+					
+					if(sHassPass.equals(sReturnPass)){
+						User user = new User();
+						try {
+							user.setnUserId(dbData.getUserId(sUserName));
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						user.setUsername(sUserName);
+						request.getSession().setAttribute("User", user);
+						response.sendRedirect("FlightSearch.jsp");
+					}else{
+						sMessage = "Incorrect login credentials";
+						request.setAttribute("sMessage", sMessage);
+						request.getRequestDispatcher("Login.jsp").forward(request,response);
+					}
+					
+				}
 				
 				
 				
-				//if user exists, redirect somewhere, else redirect elsewhere
 				
-				
-//				PrintWriter out = response.getWriter();
-//			      out.println("<h1>" + "this is a test thingy" + "</h1>");
 				
 
 	}

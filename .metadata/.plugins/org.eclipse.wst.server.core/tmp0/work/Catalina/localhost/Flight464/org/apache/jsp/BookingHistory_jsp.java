@@ -3,7 +3,6 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import flight.bizlogic.RecordFactory;
 import flight.bizlogic.FlightRecord;
 import java.util.ArrayList;
 
@@ -73,11 +72,9 @@ public final class BookingHistory_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\t</div>\r\n");
       out.write("\r\n");
       out.write("\t\t");
- RecordFactory rf = new RecordFactory(0);
-			ArrayList<FlightRecord> oRecordsList;
-			rf.generateRecords();
-			
-		 	oRecordsList = rf.getRecords();
+ 
+			ArrayList<FlightRecord> alBookings = (ArrayList<FlightRecord>) request.getSession().getAttribute("alBooking");
+		
 		   //can add list of user's transactions here later on.
 		 
       out.write("\r\n");
@@ -86,7 +83,7 @@ public final class BookingHistory_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\t\t\r\n");
       out.write("\t\t<p class=\"PageTitle\">Booking History</p>\r\n");
       out.write("\t\t<p class=\"subheading\">");
-      out.print(oRecordsList.size() );
+      out.print(alBookings.size() );
       out.write(" Total Records</p>\r\n");
       out.write("\t\t\r\n");
       out.write("\t\t<table>\r\n");
@@ -96,7 +93,7 @@ public final class BookingHistory_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\t\t\t");
  
 			int i = 1;
-			for(FlightRecord r : oRecordsList) {
+			for(FlightRecord r : alBookings) {
 			i++;
 			
       out.write("\r\n");
@@ -104,10 +101,10 @@ public final class BookingHistory_jsp extends org.apache.jasper.runtime.HttpJspB
       out.print( i % 2 == 1 ? "repeatalt" : "repeat" );
       out.write("'>\r\n");
       out.write("\t\t\t\t<TD class='key'>");
-      out.print(r.getID() );
+      out.print(r.getnID() );
       out.write("</TD>\r\n");
       out.write("\t\t\t\t<TD>");
-      out.print(r.getDateOfTravel() );
+      out.print(r.getsDateOfTravel() );
       out.write("</TD>\r\n");
       out.write("\t\t\t</TR>\r\n");
       out.write("\t\t\t");

@@ -121,7 +121,7 @@ public final class FlightSearch_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("\t\t\t\t\t<td>Flight Destination:</td><td>  <input type=\"text\" name=\"sDestination\"></td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t\t<td>Date of Travel: </td><td> <input type=\"text\" name=\"sDate\"></td>\r\n");
+      out.write("\t\t\t\t\t<td>Date of travel (MM/DD/YYYY): </td><td> <input type=\"text\" name=\"sDateStart\"></td>\r\n");
       out.write("\t\t\t\t\t<td>Number of Seats: </td><td> <input type=\"text\" name=\"nSeats\"></td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr>\r\n");

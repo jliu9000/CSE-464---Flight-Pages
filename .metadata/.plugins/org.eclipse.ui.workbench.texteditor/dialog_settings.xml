@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="System.out.print" key="selection"/>
 		<list key="findhistory">
-			<item value="invalid"/>
-			<item value="nseats"/>
-			<item value="-color"/>
-			<item value="&#x09;&#x09;&#x09;&lt;form action=&apos;ViewAndBook&apos; method=post&gt;"/>
-			<item value="import"/>
-			<item value="jsp:getProperty"/>
-			<item value="idAndIncrement"/>
-			<item value="getIdAndIncrement"/>
+			<item value="system.out.print"/>
+			<item value="FROM khanish.Bookings"/>
+			<item value="main"/>
+			<item value="FROM khanish.Users WHERE email"/>
+			<item value="SELECT * FROM khanish.Users WHERE email"/>
+			<item value="getuser"/>
+			<item value="adduser"/>
+			<item value="sidebar"/>
 		</list>
 		<list key="replacehistory">
 			<item value="sidebar.jsp"/>

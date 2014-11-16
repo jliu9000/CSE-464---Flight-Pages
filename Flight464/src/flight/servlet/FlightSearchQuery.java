@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
 
-import flight.bizlogic.*;
+import flight.bizlogic.FlightRecord;
 import flight.data.DbData;
 /**
  * Servlet implementation class FlightSearchQuery
@@ -39,7 +39,7 @@ public class FlightSearchQuery extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		FlightRecordList lRecords = new FlightRecordList();
+		ArrayList<FlightRecord> alRecords = null;
 		DbData oData = new DbData();
 		
 		String sMessage ="";
@@ -47,7 +47,7 @@ public class FlightSearchQuery extends HttpServlet {
 		
 		String sSource = request.getParameter("sSource");
 		String sDestination = request.getParameter("sDestination");
-		String sDate = request.getParameter("sDate");
+		String sDateStart = request.getParameter("sDateStart");
 		String sClass = request.getParameter("sClass");
 		int nSeats = 0;
 		try{
@@ -62,8 +62,8 @@ public class FlightSearchQuery extends HttpServlet {
 		if (sDestination == null || sDestination.equals("")){
 			sMessage += "Please enter a flight destination <br>";
 		}
-		if (sDate == null || sDate.equals("")){
-			sMessage += "Please enter a desired date of travel <br>";
+		if (sDateStart == null || sDateStart.equals("")){
+			sMessage += "Please enter a start date of travel <br>";
 		}
 		if (sClass == null || sClass.equals("")){
 			sMessage += "Please enter a flight class <br>";
@@ -71,7 +71,7 @@ public class FlightSearchQuery extends HttpServlet {
 
 		if (sMessage.equals("")){
 			try {
-				lRecords.setFlightRecordList((ArrayList <FlightRecord>) oData.searchFlights(sSource, sDestination, sDate, nSeats, sClass));
+				alRecords = (ArrayList <FlightRecord>) oData.searchFlights(sSource, sDestination, sDateStart, nSeats, sClass);
 			} catch (Exception ex) {
 				sMessage += "Internal Error, please try again later";			
 			}
@@ -79,11 +79,13 @@ public class FlightSearchQuery extends HttpServlet {
 				
 		
 		if (sMessage.equals("")){
-			request.setAttribute("SearchResults", lRecords);
-			request.setAttribute("Count", lRecords.getLength());	
-			request.setAttribute("SearchResults", lRecords);
-			RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/FlightSearchResults.jsp");
-			rq.forward(request, response);
+			if (alRecords.size() == 100){
+				sMessage = "Showing the top 100 results for your query";
+				request.setAttribute("sMessage", sMessage);
+			}
+			request.setAttribute("lSearchResults", alRecords);
+			request.getRequestDispatcher("WEB-INF/FlightSearchResults.jsp").forward(request,response);
+
 		} else {
 			request.setAttribute("sMessage", sMessage);	
 			request.getRequestDispatcher("FlightSearch.jsp").forward(request,response);

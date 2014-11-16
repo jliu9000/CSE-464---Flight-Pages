@@ -32,7 +32,7 @@
 					<td>Flight Destination:</td><td>  <input type="text" name="sDestination"></td>
 				</tr>
 				<tr>
-					<td>Date of Travel (Starting on or later): </td><td> <input type="text" name="sDate"></td>
+					<td>Date of travel (MM/DD/YYYY): </td><td> <input type="text" name="sDateStart"></td>
 					<td>Number of Seats: </td><td> <input type="text" name="nSeats"></td>
 				</tr>
 				<tr>

@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import flight.bizlogic.*;
+import java.util.ArrayList;
 import flight.bizlogic.User;
 
 public final class FlightSearchResults_jsp extends org.apache.jasper.runtime.HttpJspBase
@@ -88,6 +89,7 @@ public final class FlightSearchResults_jsp extends org.apache.jasper.runtime.Htt
 
       out.write(' ');
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
@@ -97,38 +99,28 @@ public final class FlightSearchResults_jsp extends org.apache.jasper.runtime.Htt
       out.write("<title>Flight Search Results</title>\r\n");
       out.write("\r\n");
       out.write("</head>\r\n");
+      out.write("\t");
+  
+		int nTotalRecords = 0;
+		ArrayList<FlightRecord> alRecords = (ArrayList <FlightRecord>) request.getAttribute("lSearchResults");
+		if (alRecords == null){
+			sMessage = "Unable to load records, please try again";
+		} else {
+			nTotalRecords = alRecords.size();
+		}
+	  	
+	
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<body>\r\n");
       out.write("\t<div id='sidebar' class='sidebar'>\r\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../sidebar.jsp", out, false);
       out.write("\r\n");
       out.write("\t</div>\r\n");
-      out.write("\t\r\n");
-      out.write("\t");
-  
-		if (request.getAttribute("Count") == null || request.getAttribute("SearchResults") == null){
-			response.sendRedirect("FlightSearch.jsp");
-		}
-	  	
-		Integer nTotalRecords;
-	  	nTotalRecords = (Integer) request.getAttribute("Count");  	
-	  	
-	
       out.write("\r\n");
-      out.write("\t\r\n");
-      out.write("\t");
-      flight.bizlogic.FlightRecordList SearchResults = null;
-      synchronized (request) {
-        SearchResults = (flight.bizlogic.FlightRecordList) _jspx_page_context.getAttribute("SearchResults", PageContext.REQUEST_SCOPE);
-        if (SearchResults == null){
-          SearchResults = new flight.bizlogic.FlightRecordList();
-          _jspx_page_context.setAttribute("SearchResults", SearchResults, PageContext.REQUEST_SCOPE);
-        }
-      }
-      out.write(" \r\n");
-      out.write("\t\r\n");
-      out.write("\t\r\n");
-      out.write("\t<div class=\"main\">\t\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t<div class='main'>\t\r\n");
       out.write("\t\t\r\n");
       out.write("\t\t<br><br>\r\n");
       out.write("\t\t<p class=\"PageTitle\">Flight Search Results</p>\r\n");
@@ -153,38 +145,49 @@ public final class FlightSearchResults_jsp extends org.apache.jasper.runtime.Htt
       out.write("\t\t\t\r\n");
       out.write("\t\t\r\n");
       out.write("\t\t\t");
-for (int i = 0; i<nTotalRecords; i++){
+
+				FlightRecord frTemp;			
+				for (int i = 0; i<nTotalRecords; i++){
       out.write("\r\n");
-      out.write("\t\t\t<tr class='");
+      out.write("\t\t\t\t<tr class='");
       out.print( i % 2 == 1 ? "repeatalt" : "repeat" );
       out.write("'>\r\n");
-      out.write("\t\t\t\t<TD> ");
-      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecordList)_jspx_page_context.findAttribute("SearchResults")).getFlightId())));
-      out.write(" </TD>\r\n");
-      out.write("\t\t\t\t<TD> ");
-      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecordList)_jspx_page_context.findAttribute("SearchResults")).getDate())));
-      out.write(" </TD>\r\n");
-      out.write("\t\t\t\t<TD> ");
-      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecordList)_jspx_page_context.findAttribute("SearchResults")).getDepartureTime())));
-      out.write(" </TD>\r\n");
-      out.write("\t\t\t\t<TD> ");
-      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecordList)_jspx_page_context.findAttribute("SearchResults")).getArrivalTime())));
-      out.write(" </TD>\r\n");
-      out.write("\t\t\t\t<TD> ");
-      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecordList)_jspx_page_context.findAttribute("SearchResults")).getNumberOfStops())));
-      out.write(" </TD>\r\n");
-      out.write("\t\t\t\t<TD> ");
-      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecordList)_jspx_page_context.findAttribute("SearchResults")).getCost())));
-      out.write(" </TD>\r\n");
-      out.write("\t\t\t\t<TD class='button'>\t\r\n");
-      out.write("\t\t\t\t\t<form action=\"FlightSearchResults\" method=post>\r\n");
-      out.write("\t\t\t\t\t\t<input type='hidden' id='nFlightId' value='");
-      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecordList)_jspx_page_context.findAttribute("SearchResults")).getIdAndIncrement())));
+      out.write("\t\t\t\t\t");
+ frTemp = alRecords.get(i);  
+      out.write("\r\n");
+      out.write("\t\t\t\t\t<TD>");
+      out.print( frTemp.getnID() );
+      out.write("</TD>\r\n");
+      out.write("\t\t\t\t\t<TD>");
+      out.print( frTemp.getsDateOfTravel() );
+      out.write("</TD>\r\n");
+      out.write("\t\t\t\t\t<TD>");
+      out.print( frTemp.getsDepartureTime() );
+      out.write("</TD>\r\n");
+      out.write("\t\t\t\t\t<TD>");
+      out.print( frTemp.getsArrivalTime() );
+      out.write("</TD>\r\n");
+      out.write("\t\t\t\t\t<TD>");
+      out.print( frTemp.getnNumberOfStops() );
+      out.write("</TD>\r\n");
+      out.write("\t\t\t\t\t<TD>");
+      out.print( frTemp.getdCost() );
+      out.write("</TD>\r\n");
+      out.write("\t\t\t\t\t<TD class='button'>\t\r\n");
+      out.write("\t\t\t\t\t\t<form action=\"FlightSearchResults\" method=post>\r\n");
+      out.write("\t\t\t\t\t\t\t<input type='hidden' name='nFlightId' value='");
+      out.print( frTemp.getnID() );
       out.write("'>\r\n");
-      out.write("\t\t\t\t\t\t<input type='submit' value='View and Book'>\r\n");
-      out.write("\t\t\t\t\t</form>\r\n");
-      out.write("\t\t\t\t</td>\t\t\t\r\n");
-      out.write("\t\t\t</tr>\r\n");
+      out.write("\t\t\t\t\t\t\t<input type='hidden' name='dCost' value='");
+      out.print( frTemp.getdCost() );
+      out.write("' />\r\n");
+      out.write("\t\t\t\t\t\t\t<input type='hidden' name='sClass' value='");
+      out.print( frTemp.getsClass() );
+      out.write("' />\r\n");
+      out.write("\t\t\t\t\t\t\t<input type='submit' value='View and Book'>\r\n");
+      out.write("\t\t\t\t\t\t</form>\r\n");
+      out.write("\t\t\t\t\t</td>\t\t\t\r\n");
+      out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t");
 } 
       out.write("\r\n");

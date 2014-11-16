@@ -2,7 +2,7 @@ package flight.bizlogic;
 
 public class User {
 	private String username;
-	private String nUserId;
+	private int nUserId;
 	
 	
 	
@@ -15,10 +15,10 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getnUserId() {
+	public int getnUserId() {
 		return nUserId;
 	}
-	public void setnUserId(String nUserId) {
+	public void setnUserId(int nUserId) {
 		this.nUserId = nUserId;
 	}
 	

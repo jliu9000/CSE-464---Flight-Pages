@@ -98,14 +98,7 @@ public final class Transaction_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\r\n");
       out.write("\r\n");
  
-	Integer nSeats = 0;
-	if (request.getAttribute("nSeats") == null){
-		request.setAttribute("sMessage", "Invalid number of seats");
-		request.getRequestDispatcher("ViewAndBook.jsp").forward(request, response);	
-	} else {
-		nSeats = (Integer) request.getAttribute("nSeats");	
-	
-	}
+
 	
 
       out.write("\r\n");
@@ -164,29 +157,36 @@ public final class Transaction_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t</tr>\r\n");
       out.write("\t\t</table>\r\n");
       out.write("\t\t<br>\r\n");
-      out.write("\t\t<p><b>Cost:</b> $");
+      out.write("\t\t<p><b>Cost:</b> $ ");
       out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getdCost())));
       out.write("</p>\r\n");
       out.write("\t\t\r\n");
       out.write("\t\t<p class='subheading'>Payment Information:</p>\r\n");
       out.write("\t\t\r\n");
-      out.write("\t\t<form action='ConfirmTransaction' method=post>\r\n");
-      out.write("\t\t<input type=\"hidden\" name=\"nFlightId\" value=\"");
+      out.write("\t\t<form action='TransactionConfirmation' method=post>\r\n");
+      out.write("\t\t<input type=\"hidden\" name=\"nFlightId\" value='");
       out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getnID())));
-      out.write("\"/>\r\n");
-      out.write("\t\t<input type=\"hidden\" name=\"nSeats\" value=\"");
-      out.print(nSeats );
-      out.write("\"/>\r\n");
+      out.write("'/>\r\n");
+      out.write("\t\t<input type=\"hidden\" name=\"nSeats\" value='");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getnQueuedSeats())));
+      out.write("' />\r\n");
+      out.write("\t\t<input type=\"hidden\" name=\"sClass\" value='");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getsClass())));
+      out.write("' />\r\n");
+      out.write("\t\t<input type=\"hidden\" name=\"dCost\" value='");
+      out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getdCost())));
+      out.write("'/>\r\n");
+      out.write("\t\t\r\n");
       out.write("\t\t\r\n");
       out.write("\t\t\t<table>\r\n");
       out.write("\t\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t\t<td class='key'>Account Holder's Name: </td><td><input type=\"text\" name=\"sAccountHolder\"></td>\r\n");
+      out.write("\t\t\t\t\t<td class='key'>Account Holder's Name: </td><td><input type=\"text\" name=\"sAccountHolder\" /></td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t\t<td class='key'>Routing Number: </td><td><input type=\"text\" name=\"nRoutingNumber\"></td>\r\n");
+      out.write("\t\t\t\t\t<td class='key'>Routing Number: </td><td><input type=\"text\" name=\"nRoutingNumber\" /></td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t\t<td class='key'>Account Number: </td><td><input type=\"password\" name=\"nAccountNumber\"></td>\r\n");
+      out.write("\t\t\t\t\t<td class='key'>Account Number: </td><td><input type=\"password\" name=\"nAccountNumber\" /></td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr>\r\n");
       out.write("\t\t\t\t\t<td></td><td></td>\r\n");
