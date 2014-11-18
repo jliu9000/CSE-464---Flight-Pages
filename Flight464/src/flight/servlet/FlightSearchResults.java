@@ -88,6 +88,10 @@ public class FlightSearchResults extends HttpServlet {
 			fr.setdCost(dCost);
 			fr.setsClass(sClass);
 			request.setAttribute("SelectedFlight", fr);
+			
+			HttpSession session = request.getSession(true);
+			session.setAttribute("RequestedFlight", fr);
+			
 			request.setAttribute("nAvailableSeats", fr.getnSeats());
 			RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/ViewAndBook.jsp");
 			rq.forward(request, response);

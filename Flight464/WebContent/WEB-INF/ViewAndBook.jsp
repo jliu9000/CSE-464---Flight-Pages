@@ -75,7 +75,7 @@
 				<input type="hidden" name="nSeats" value='<jsp:getProperty name="SelectedFlight" property="nSeats" />'>
 				<input type="hidden" name="sClass" value='<jsp:getProperty name="SelectedFlight" property="sClass" />'>			
 				<input type="hidden" name="nFlightId" value='<jsp:getProperty name="SelectedFlight" property="nID" />'>
-				<input type="submit" value="Submit" style="font-weight:bold;"></input>
+				<button type="button" onclick="addToShoppingCart()" style="font-weight:bold;">Add to Cart</button>
 		</td>
 		<td><button type=button onclick="goHome()">Home</button></td></tr>
 		</table>		
@@ -94,7 +94,15 @@
 		
 		window.location.replace("FlightSearch.jsp");
 	}
-
+	
+	function addToShoppingCart(){
+		$.ajax({
+			type: "POST",  
+			url: "ShoppingCart",
+			})
+		
+	}
+	
 
 
 </script>
