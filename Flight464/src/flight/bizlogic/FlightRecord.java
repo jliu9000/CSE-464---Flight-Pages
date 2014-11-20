@@ -12,8 +12,17 @@ public class FlightRecord {
 	private int nNumberOfStops;
 	private double dCost;
 	private int nID;
+	private int nNumSelectedSeats;
 
 	
+	public int getnNumSelectedSeats() {
+		return nNumSelectedSeats;
+	}
+
+	public void setnNumSelectedSeats(int nNumSelectedSeats) {
+		this.nNumSelectedSeats = nNumSelectedSeats;
+	}
+
 	public FlightRecord(){}
 	
 	public int getnQueuedSeats(){

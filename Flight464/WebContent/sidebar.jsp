@@ -32,7 +32,7 @@
 			<li> </li>
 			<li> </li>
 			<li><a href="./FlightSearch.jsp">Home</a></li>
-			<li><a href="./ShoppingCart.jsp">Shopping Cart</a></li>
+			<li><a href="./ShoppingCart.jsp">Shopping Cart / Check Out</a></li>
 			<li>
 				<form action="BookingHistory" method=post>	
 					<input type='hidden' name='BookingHistory' value='true'>

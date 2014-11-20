@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <title></title>
 </head>
 	<%  
@@ -29,7 +30,7 @@
 	<div class='main'>	
 		
 		<br><br>
-		<p class="PageTitle">Flight Search Results</p>
+		<p class="PageTitle">Shopping Cart</p>
 		<p class="subheading"><b><%=nTotalRecords %></b> Results Found</p>
 		
 		<div class='ErrorMessage'><%=sMessage %></div>
@@ -42,12 +43,13 @@
 				<th>Arrival Time</th>
 				<th>Number of Stops</th>
 				<th>Cost</th>
-				<th>Additional Details</th>
+				<th>Number of Seats</th>
 			</TR>
 			
 		
 			<%
-				FlightRecord frTemp;			
+				FlightRecord frTemp;
+			
 				for (int i = 0; i<nTotalRecords; i++){%>
 				<tr class='<%= i % 2 == 1 ? "repeatalt" : "repeat" %>'>
 					<% frTemp = alRecords.get(i);  %>
@@ -57,20 +59,51 @@
 					<TD><%= frTemp.getsArrivalTime() %></TD>
 					<TD><%= frTemp.getnNumberOfStops() %></TD>
 					<TD><%= frTemp.getdCost() %></TD>
-					<TD class='button'>	
-						<form action="FlightSearchResults" method=post>
-							<input type='hidden' name='nFlightId' value='<%= frTemp.getnID() %>'>
-							<input type='hidden' name='dCost' value='<%= frTemp.getdCost() %>' />
-							<input type='hidden' name='sClass' value='<%= frTemp.getsClass() %>' />
-							<input type='submit' value='View and Book'>
-						</form>
+					<td> 
+						<select name="<%=i %>" id="Select">
+						
+						<% for (int j=0; j<=frTemp.getnSeats(); j++) {%>
+						<%if(j == frTemp.getnNumSelectedSeats()){ %>
+							<option value="<%=j %>" selected="selected"><%=j %></option>
+							
+							<% }else{%> 
+							<option value="<%=j %>"><%=j %></option><%} %>
+						<%} %>
+					</select>
 					</td>			
 				</tr>
 			<%} %>
 			
 		</table>
 		<br><br>
-	
+		<form action='ViewAndBook' method=get>
+		<input type="submit" value="Checkout" style="font-weight:bold;"></input>
+		</form>
 	</div>	
 </body>
+<script>
+	function SelectedChanged(SelectTag){
+		alert(SelectTag);
+	}
+	
+	
+	$('Select').change(function () {
+	     var optionSelected = $(this).find("option:selected");
+	     var valueSelected  = optionSelected.val();
+	     var textSelected   = optionSelected.text();
+	     var name = $(this).attr('name');
+	     var dataString = "UpdateCart=" + name + "&Value=" + textSelected; 
+	     
+	     $.ajax({
+				type: "POST",  
+				url: "ShoppingCart",
+				data: dataString,
+				})
+	     
+	     
+	     alert(name);
+	 });
+	
+</script>
+
 </html>

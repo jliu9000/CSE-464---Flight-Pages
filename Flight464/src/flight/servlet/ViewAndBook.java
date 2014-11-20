@@ -1,12 +1,14 @@
 package flight.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import flight.bizlogic.FlightRecord;
 import flight.data.DbData;
@@ -30,6 +32,29 @@ public class ViewAndBook extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String sMessage = "";
+		double dTotalCost = 0;
+		HttpSession session = request.getSession(true);
+		@SuppressWarnings("unchecked")
+		ArrayList<FlightRecord> alRecords = (ArrayList <FlightRecord>) session.getAttribute("ShoppingCart");	
+		
+		
+		if (alRecords.size() > 0) {
+			FlightRecord frTemp;
+			for(int i = 0;i<alRecords.size()-1;i++){
+				frTemp = alRecords.get(i);
+				dTotalCost = dTotalCost + (frTemp.getdCost() * frTemp.getnNumSelectedSeats()) ;
+				
+			}
+			System.out.println("total cost = " + dTotalCost);
+		} else {
+			//redirect to error handling page
+			sMessage = "Shopping cart is empty";
+			request.setAttribute("sMessage", sMessage);
+			request.getRequestDispatcher("./ShoppingCarts.jsp").forward(request, response);
+		}
+		
+		
 	}
 
 	/**
@@ -63,6 +88,7 @@ public class ViewAndBook extends HttpServlet {
 		if (sMessage.equals("")) {
 			try {
 			fr = oData.GetFlight(nFlightId, sClass);
+			fr.setnSeats(nSeats);
 			} catch (Exception ex){
 				sMessage += "Internal Error <br>";
 			}

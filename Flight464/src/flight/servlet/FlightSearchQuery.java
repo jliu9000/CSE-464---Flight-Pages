@@ -79,6 +79,7 @@ public class FlightSearchQuery extends HttpServlet {
 				
 		
 		if (sMessage.equals("")){
+			System.out.println("some test message here");
 			if (alRecords.size() == 100){
 				sMessage = "Showing the top 100 results for your query";
 				request.setAttribute("sMessage", sMessage);

@@ -47,7 +47,7 @@
 	
 		<table>
 				<tr><td class="key">Number of Seats</td><td>
-					<select name="nSeats">
+					<select id="SelectedSeats" name="nSeats">
 						<% for (int i=1; i<=nAvailableSeats; i++) {%> 
 							<option value="<%=i %>"><%=i %></option>
 						<%} %>
@@ -96,9 +96,15 @@
 	}
 	
 	function addToShoppingCart(){
+		
+		var sNumSeats = "sSelectedNumSeats=" + $( "#SelectedSeats option:selected" ).text();
 		$.ajax({
 			type: "POST",  
 			url: "ShoppingCart",
+			data: sNumSeats,
+			success: function(){
+				alert("succesfully added flight to your cart!");
+			}
 			})
 		
 	}
