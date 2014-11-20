@@ -9,4 +9,6 @@
 <fullyQualifiedTypeName name="flight.data.DbData"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="flight.bizlogic.User"/>
+<fullyQualifiedTypeName name="bank.data.DBBank"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
 </qualifiedTypeNameHistroy>

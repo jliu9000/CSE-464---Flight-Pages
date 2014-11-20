@@ -1,6 +1,7 @@
 package flight.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -32,28 +33,7 @@ public class ViewAndBook extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String sMessage = "";
-		double dTotalCost = 0;
-		HttpSession session = request.getSession(true);
-		@SuppressWarnings("unchecked")
-		ArrayList<FlightRecord> alRecords = (ArrayList <FlightRecord>) session.getAttribute("ShoppingCart");	
-		
-		
-		if (alRecords.size() > 0) {
-			FlightRecord frTemp;
-			for(int i = 0;i<alRecords.size()-1;i++){
-				frTemp = alRecords.get(i);
-				dTotalCost = dTotalCost + (frTemp.getdCost() * frTemp.getnNumSelectedSeats()) ;
-				
-			}
-			System.out.println("total cost = " + dTotalCost);
-		} else {
-			//redirect to error handling page
-			sMessage = "Shopping cart is empty";
-			request.setAttribute("sMessage", sMessage);
-			request.getRequestDispatcher("./ShoppingCarts.jsp").forward(request, response);
-		}
-		
+	
 		
 	}
 
@@ -61,54 +41,51 @@ public class ViewAndBook extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DbData oData = new DbData();
 		String sMessage = "";
-		Integer nFlightId = 0;
-		Integer nSeats = 0;
-		Double dCost = 0.0;
-		String sClass = "";
-		FlightRecord fr = null;
+		double dTotalCost = 0;
+		DbData oData = new DbData();
+		HttpSession session = request.getSession(true);
+		@SuppressWarnings("unchecked")
+		ArrayList<FlightRecord> alRecords = (ArrayList <FlightRecord>) session.getAttribute("ShoppingCart");	
 		
-		try{
-			nFlightId = Integer.parseInt(request.getParameter("nFlightId"));
-			nSeats = Integer.parseInt(request.getParameter("nSeats"));
-		} catch (Exception ex){
-			sMessage = "Something went wrong, please go back and try again <br>";			
-		}
-		try {
-			dCost = Double.parseDouble(request.getParameter("dCost"));
-		} catch (Exception ex){
-			sMessage += "Invalid cost <br>";
-		}
-		sClass = (String) request.getParameter("sClass");
-		if (sClass == null || sClass.equals("")){
-			sMessage += "Invalid seating class<br>";
-		}
 		
-		if (sMessage.equals("")) {
-			try {
-			fr = oData.GetFlight(nFlightId, sClass);
-			fr.setnSeats(nSeats);
-			} catch (Exception ex){
-				sMessage += "Internal Error <br>";
+		if (alRecords != null && alRecords.size() > 0) {
+			FlightRecord frTemp, frRetrievedFlight;
+			for(int i = 0;i<alRecords.size()-1;i++){
+				frTemp = alRecords.get(i);
+				dTotalCost = dTotalCost + (frTemp.getdCost() * frTemp.getnNumSelectedSeats());
+				
+				try {
+					frRetrievedFlight = oData.GetFlight(frTemp.getnID(), frTemp.getsClass());
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					sMessage += "Internal Error: unable to retrieve your flight<BR>";
+					break;
+				}
+				if (frRetrievedFlight.getnSeats() < frTemp.getnSeats()){
+					sMessage += "Not enough seats on flight " +frTemp.getnID() +"<BR>";
+				}
 			}
-		}		
-		if (fr != null && fr.getnSeats() < nSeats){
-			sMessage += "Your number of selected seats exceeds the number of available seats <br>";
-		}
-
-		
-		if (sMessage.equals("")) {
-			fr.setdCost(dCost);
-			fr.setnQueuedSeats(nSeats);
-	
-			request.setAttribute("SelectedFlight", fr);
-			request.getRequestDispatcher("WEB-INF/Transaction.jsp").forward(request, response);
+			System.out.println("total cost = " + dTotalCost);
 		} else {
 			//redirect to error handling page
-			request.setAttribute("sMessage", sMessage);
-			request.getRequestDispatcher("WEB-INF/ViewAndBook.jsp").forward(request, response);
+			sMessage = "Shopping cart is empty<BR>";
 		}
+		
+		//forward request
+		if (sMessage.equals("")){
+			request.setAttribute("dTotalCost", dTotalCost);
+			request.getRequestDispatcher("/WEB-INF/ConfirmBooking.jsp").forward(request,response);
+			
+		} else {
+			request.setAttribute("sMessage", sMessage);
+			request.getRequestDispatcher("./ShoppingCarts.jsp").forward(request, response);
+		}
+
+	
+	
+	
 	}
 	
 	

@@ -72,6 +72,9 @@ public class ShoppingCart extends HttpServlet {
 		System.out.println("number in cart:" + alRecords.size());
 		session.setAttribute("ShoppingCart", alRecords);
 		
+		
+		
+		
 	}
 
 }

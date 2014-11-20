@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="flight.bizlogic.*, java.util.ArrayList"%>
+<%@ include file="LoginHelper.jsp" %>
+<%@ include file="ErrorMessageHelper.jsp" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id='sidebar' class='sidebar'>
+        <jsp:include page="../sidebar.jsp" />
+	</div>
+
+		
+	<div class='main'>	
+		
+		<br><br>
+		<p class="PageTitle">Shopping Cart</p>
+		<p class="subheading"><b><%=nTotalRecords %></b> Results Found</p>
+		
+		<div class='ErrorMessage'><%=sMessage %></div>
+		<table>
+			<TR>
+				<th>Flight ID</th>
+				<th>Date</th>
+				<th>Departure Time</th>
+				<th>Arrival Time</th>
+				<th>Number of Stops</th>
+				<th>Cost</th>
+				<th>Number of Seats</th>
+			</TR>
+			
+		
+			<%
+				FlightRecord frTemp;
+			
+				for (int i = 0; i<nTotalRecords; i++){%>
+				<tr class='<%= i % 2 == 1 ? "repeatalt" : "repeat" %>'>
+					<% frTemp = alRecords.get(i);  %>
+					<TD><%= frTemp.getnID() %></TD>
+					<TD><%= frTemp.getsDateOfTravel() %></TD>
+					<TD><%= frTemp.getsDepartureTime() %></TD>
+					<TD><%= frTemp.getsArrivalTime() %></TD>
+					<TD><%= frTemp.getnNumberOfStops() %></TD>
+					<TD><%= frTemp.getdCost() %></TD>
+					<td> 
+						<select name="<%=i %>" id="Select">
+						
+						<% for (int j=0; j<=frTemp.getnSeats(); j++) {%>
+						<%if(j == frTemp.getnNumSelectedSeats()){ %>
+							<option value="<%=j %>" selected="selected"><%=j %></option>
+							
+							<% }else{%> 
+							<option value="<%=j %>"><%=j %></option><%} %>
+						<%} %>
+					</select>
+					</td>			
+				</tr>
+			<%} %>
+			
+		</table>
+	</div>
+
+</body>
+</html>
