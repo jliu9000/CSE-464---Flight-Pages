@@ -35,7 +35,7 @@
 	<div class='main'>	
 		
 		<br><br>
-		<p class="PageTitle">Shopping Cart</p>
+		<p class="PageTitle">Confirm Booking</p>
 		<p class="subheading"></p>
 		
 		<div class='ErrorMessage'><%=sMessage %></div>
@@ -63,18 +63,7 @@
 					<TD><%= frTemp.getsArrivalTime() %></TD>
 					<TD><%= frTemp.getnNumberOfStops() %></TD>
 					<TD><%= frTemp.getdCost() %></TD>
-					<td> 
-						<select name="<%=i %>" id="Select">
-						
-						<% for (int j=0; j<=frTemp.getnSeats(); j++) {%>
-						<%if(j == frTemp.getnNumSelectedSeats()){ %>
-							<option value="<%=j %>" selected="selected"><%=j %></option>
-							
-							<% }else{%> 
-							<option value="<%=j %>"><%=j %></option><%} %>
-						<%} %>
-					</select>
-					</td>			
+					<td><%=frTemp.getnNumSelectedSeats() %></td>			
 				</tr>
 			<%} %>
 			
@@ -111,16 +100,16 @@
 </body>
 <script>
 	function ConfirmTransaction(){
-		alert("clicked");
 		
 		var dTotalCost = $("#dTotalCost").val();
 		var nAcctNumber = $("#nAccountNumber").val();
 		var nRoutingNumber = $("#nRoutingNumber").val();
-//		if (isNaN(dTotalCost) || dTotalCost <= 0 || isNaN(nAcctNumber) || isNaN(nRoutingNumber)){
+
 		if (isNaN(dTotalCost) || dTotalCost <= 0 || isNaN(nAcctNumber) || isNaN(nRoutingNumber)){
 
 			alert(dTotalCost, nAcctNumber);
 		} else {
+			$("#addToCart").prop("disabled",true);
 			$.ajax
             ({
                 type: "POST",
@@ -132,19 +121,50 @@
 				"dCost":dTotalCost
 						},
                 success: function (data) {
-					alert(JSON.stringify(data));
+
+					if (data.bSuccess){
+						UpdateBooking();
+					} else {
+						$(".ErrorMessage").html("We were unable to post your transction to your bank for the following reason: <BR>" +data.sMessage);						
+					}
 				},
 				error: function(data){
-					alert("error");
+					$(".ErrorMessage").html("Internal error while communicating with the banking server, please try again later");
 				}
   			});
 			
 			
 		}
-		alert('done');
+
 		
 		
 	}
+	
+	function UpdateBooking(){
+		$.ajax
+        ({
+            type: "POST",
+            url: 'TransactionConfirmation',
+            dataType: 'json',
+            data:{ 	
+				"bSubmit":true
+			},
+            success: function (data) {
+				$(".ErrorMessage").html(data.sMessage);
+			},
+			error: function(data){
+				$(".ErrorMessage").html("Internal Error retrieving your flight, please try again later.");
+			}
+		});
+
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	function Cancel() {
 		window.location.replace("FlightSearch.jsp");

@@ -42,7 +42,7 @@ public class ViewAndBook extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String sMessage = "";
-		double dTotalCost = 0;
+		Double dTotalCost = 0.0;
 		DbData oData = new DbData();
 		HttpSession session = request.getSession(true);
 		@SuppressWarnings("unchecked")
@@ -51,9 +51,9 @@ public class ViewAndBook extends HttpServlet {
 		
 		if (alRecords != null && alRecords.size() > 0) {
 			FlightRecord frTemp, frRetrievedFlight;
-			for(int i = 0;i<alRecords.size()-1;i++){
+			for(int i = 0;i<alRecords.size();i++){
 				frTemp = alRecords.get(i);
-				dTotalCost = dTotalCost + (frTemp.getdCost() * frTemp.getnNumSelectedSeats());
+				dTotalCost += (frTemp.getdCost() * frTemp.getnNumSelectedSeats());
 				
 				try {
 					frRetrievedFlight = oData.GetFlight(frTemp.getnID(), frTemp.getsClass());
@@ -66,8 +66,10 @@ public class ViewAndBook extends HttpServlet {
 				if (frRetrievedFlight.getnSeats() < frTemp.getnSeats()){
 					sMessage += "Not enough seats on flight " +frTemp.getnID() +"<BR>";
 				}
+				System.out.println("total cost = " + dTotalCost);
+				System.out.println("seats:" + frTemp.getnNumSelectedSeats());
+
 			}
-			System.out.println("total cost = " + dTotalCost);
 		} else {
 			//redirect to error handling page
 			sMessage = "Shopping cart is empty<BR>";

@@ -117,12 +117,12 @@ public final class FlightSearch_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("\t\t<form action='FlightSearchQuery' method=post>\r\n");
       out.write("\t\t\t<table width=600>\r\n");
       out.write("\t\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t\t<TD>Flight Source:</td><td> <input type=\"text\" name=\"sSource\" value=\"ATL\"></TD>\r\n");
-      out.write("\t\t\t\t\t<td>Flight Destination:</td><td>  <input type=\"text\" name=\"sDestination\" value=\"ANC\"></td>\r\n");
+      out.write("\t\t\t\t\t<TD>Flight Source:</td><td> <input type=\"text\" name=\"sSource\" value=\"\"></TD>\r\n");
+      out.write("\t\t\t\t\t<td>Flight Destination:</td><td>  <input type=\"text\" name=\"sDestination\" value=\"\"></td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t\t<td>Date of travel (MM/DD/YYYY): </td><td> <input type=\"text\" name=\"sDateStart\" value=\"09/30/2014\"></td>\r\n");
-      out.write("\t\t\t\t\t<td>Number of Seats: </td><td> <input type=\"text\" name=\"nSeats\" value=\"1\"></td>\r\n");
+      out.write("\t\t\t\t\t<td>Date of travel (MM/DD/YYYY): </td><td> <input type=\"text\" name=\"sDateStart\" value=\"\"></td>\r\n");
+      out.write("\t\t\t\t\t<td>Number of Seats: </td><td> <input type=\"text\" name=\"nSeats\" value=\"\"></td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tr>\r\n");
       out.write("\t\t\t\t\t<td>Class:</td>\r\n");

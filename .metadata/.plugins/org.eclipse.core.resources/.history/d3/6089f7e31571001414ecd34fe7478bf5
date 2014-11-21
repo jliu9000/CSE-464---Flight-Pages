@@ -1,0 +1,90 @@
+package flight.servlet;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import flight.bizlogic.FlightRecord;
+import flight.bizlogic.User;
+import flight.bizlogic.UserTransaction;
+import flight.data.DbData;
+
+/**
+ * Servlet implementation class ConfirmTransaction
+ */
+public class TransactionConfirmation extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public TransactionConfirmation() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String sMessage = "";
+		UserTransaction oTransactionRecord = null;
+		DbData oData = new DbData();
+		FlightRecord fr = null;
+		//request params
+		String sAccountHolder = "";
+		Integer nRoutingNumber = 0;
+		Integer nAccountNumber = 0;
+		Integer nFlightID = 0;
+		Integer nSeats = 0;
+		String sClass = "";
+		double dAccountBalance = 0;
+		double dCost = 0.0;
+		double dTotalCost = Double.MAX_VALUE;
+		
+		User user = (User) request.getSession().getAttribute("User");
+		if (user == null){
+			//shouldn't get here... right?
+			request.setAttribute("sMessage", "Please login first before attempting to select a site");
+			request.getRequestDispatcher("Login").forward(request, response);
+		}
+		
+		
+		if (sMessage.equals("")){
+			try {
+				oData.AddBooking(nFlightID, nSeats, sClass, nAccountNumber, user.getnUserId(), dCost, fr.getsDateOfTravel());
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				sMessage += "Interal Error <BR>";
+			}
+		}
+				
+		
+		if (sMessage.equals("")) {
+			request.setAttribute("sMessage", "Your flight has been booked");
+			request.setAttribute("sAccountHolder", sAccountHolder);
+			request.setAttribute("dTotalCost", dTotalCost);
+			request.setAttribute("ConfirmedFlight", fr);
+		} else {
+			sMessage = "We were unable to book your flight for the following reasons:<BR><BR>" + sMessage;
+			request.setAttribute("sMessage", sMessage);
+			request.setAttribute("ConfirmedFlight", oTransactionRecord);
+		}
+		request.getRequestDispatcher("WEB-INF/TransactionConfirmation.jsp").forward(request, response);
+		
+		
+	}
+
+}

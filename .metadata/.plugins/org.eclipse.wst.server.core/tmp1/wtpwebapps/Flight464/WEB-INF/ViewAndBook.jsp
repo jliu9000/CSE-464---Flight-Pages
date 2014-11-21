@@ -75,7 +75,7 @@
 				<input type="hidden" name="nSeats" value='<jsp:getProperty name="SelectedFlight" property="nSeats" />'>
 				<input type="hidden" name="sClass" value='<jsp:getProperty name="SelectedFlight" property="sClass" />'>			
 				<input type="hidden" name="nFlightId" value='<jsp:getProperty name="SelectedFlight" property="nID" />'>
-				<button type="button" onclick="addToShoppingCart()" style="font-weight:bold;">Add to Cart</button>
+				<button type="button" id="addToCart" onclick="addToShoppingCart()" style="font-weight:bold;">Add to Cart</button>
 		</td>
 		<td><button type=button onclick="goHome()">Home</button></td></tr>
 		</table>		
@@ -98,12 +98,14 @@
 	function addToShoppingCart(){
 		
 		var sNumSeats = "sSelectedNumSeats=" + $( "#SelectedSeats option:selected" ).text();
+		$("#addToCart").prop("disabled",true);
+
 		$.ajax({
 			type: "POST",  
 			url: "ShoppingCart",
 			data: sNumSeats,
 			success: function(){
-				alert("succesfully added flight to your cart!");
+				alert("Successfully added flight to your cart!");
 			}
 			})
 		

@@ -124,7 +124,7 @@ public final class ShoppingCart_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("\t\t<p class=\"PageTitle\">Shopping Cart</p>\r\n");
       out.write("\t\t<p class=\"subheading\"><b>");
       out.print(nTotalRecords );
-      out.write("</b> Results Found</p>\r\n");
+      out.write("</b> Items in Cart</p>\r\n");
       out.write("\t\t\r\n");
       out.write("\t\t<div class='ErrorMessage'>");
       out.print(sMessage );
@@ -213,14 +213,20 @@ if(j == frTemp.getnNumSelectedSeats()){
       out.write("\t\t<br><br>\r\n");
       out.write("\t\t<form action='ViewAndBook' method=post>\r\n");
       out.write("\t\t<input type=\"hidden\" value=\"true\" name=\"submit\" />\r\n");
+      out.write("\t\t");
+ if (sMessage.equals("")){ 
+      out.write("\r\n");
       out.write("\t\t<input type=\"submit\" value=\"Checkout\" style=\"font-weight:bold;\"></input>\r\n");
+      out.write("\t\t");
+} 
+      out.write("\r\n");
       out.write("\t\t</form>\r\n");
       out.write("\t</div>\t\r\n");
       out.write("</body>\r\n");
       out.write("<script>\r\n");
-      out.write("\tfunction SelectedChanged(SelectTag){\r\n");
+      out.write("\t//function SelectedChanged(SelectTag){\r\n");
       out.write("\t\t//alert(SelectTag);\r\n");
-      out.write("\t}\r\n");
+      out.write("\t//}\r\n");
       out.write("\t\r\n");
       out.write("\t\r\n");
       out.write("\t$('Select').change(function () {\r\n");
@@ -237,7 +243,6 @@ if(j == frTemp.getnNumSelectedSeats()){
       out.write("\t\t\t\t})\r\n");
       out.write("\t     \r\n");
       out.write("\t     \r\n");
-      out.write("\t     alert(name);\r\n");
       out.write("\t });\r\n");
       out.write("\t\r\n");
       out.write("</script>\r\n");

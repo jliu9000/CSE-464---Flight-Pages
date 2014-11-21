@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="81" version="2.0">
+<workbench progressCount="86" version="2.0">
 <workbenchAdvisor/>
 <window height="607" maximized="true" width="1302" x="40" y="44">
 <fastViewData fastViewLocation="1024"/>
@@ -30,7 +30,7 @@
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.browser.editor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jst.jsp.core.jspsource.source" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -47,50 +47,25 @@
 <part id="4"/>
 <part id="5"/>
 <part id="6"/>
-<part id="7"/>
-<part id="8"/>
-<part id="9"/>
-<part id="10"/>
-<part id="11"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jst.jsp.core.jspsource.source" name="ConfirmBooking.jsp" partName="ConfirmBooking.jsp" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/WebContent/WEB-INF/ConfirmBooking.jsp" title="ConfirmBooking.jsp" tooltip="Flight464/WebContent/WEB-INF/ConfirmBooking.jsp" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="ConfirmBooking.jsp" partName="ConfirmBooking.jsp" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/WebContent/WEB-INF/ConfirmBooking.jsp" title="ConfirmBooking.jsp" tooltip="Flight464/WebContent/WEB-INF/ConfirmBooking.jsp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Flight464/WebContent/WEB-INF/ConfirmBooking.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="429" selectionOffset="3586" selectionTopPixel="1770"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Login.java" partName="Login.java" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/src/flight/servlet/Login.java" title="Login.java" tooltip="Flight464/src/flight/servlet/Login.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Flight464/src/flight/servlet/Login.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="717" selectionTopPixel="258"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4176" selectionTopPixel="2127"/>
 </editor>
 <editor id="org.eclipse.jst.jsp.core.jspsource.source" name="Login.jsp" partName="Login.jsp" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/WebContent/Login.jsp" title="Login.jsp" tooltip="Flight464/WebContent/Login.jsp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Flight464/WebContent/Login.jsp"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ViewAndBook.java" partName="ViewAndBook.java" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/src/flight/servlet/ViewAndBook.java" title="ViewAndBook.java" tooltip="Flight464/src/flight/servlet/ViewAndBook.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Flight464/src/flight/servlet/ViewAndBook.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="1728" selectionTopPixel="570"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ShoppingCart.java" partName="ShoppingCart.java" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/src/flight/servlet/ShoppingCart.java" title="ShoppingCart.java" tooltip="Flight464/src/flight/servlet/ShoppingCart.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Flight464/src/flight/servlet/ShoppingCart.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="420"/>
-</editor>
-<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="Transaction.jsp" partName="Transaction.jsp" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/WebContent/WEB-INF/Transaction.jsp" title="Transaction.jsp" tooltip="Flight464/WebContent/WEB-INF/Transaction.jsp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Flight464/WebContent/WEB-INF/Transaction.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="3141" selectionTopPixel="1020"/>
-</editor>
-<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="TransactionConfirmation.jsp" partName="TransactionConfirmation.jsp" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/WebContent/WEB-INF/TransactionConfirmation.jsp" title="TransactionConfirmation.jsp" tooltip="Flight464/WebContent/WEB-INF/TransactionConfirmation.jsp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Flight464/WebContent/WEB-INF/TransactionConfirmation.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="465"/>
-</editor>
-<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="LoginHelper.jsp" partName="LoginHelper.jsp" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/WebContent/WEB-INF/LoginHelper.jsp" title="LoginHelper.jsp" tooltip="Flight464/WebContent/WEB-INF/LoginHelper.jsp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Flight464/WebContent/WEB-INF/LoginHelper.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="312" selectionTopPixel="0"/>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="FlightSearch.jsp" partName="FlightSearch.jsp" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/WebContent/FlightSearch.jsp" title="FlightSearch.jsp" tooltip="Flight464/WebContent/FlightSearch.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Flight464/WebContent/FlightSearch.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1281" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jst.jsp.core.jspsource.source" name="ShoppingCart.jsp" partName="ShoppingCart.jsp" path="C:/Users/John/Documents/GitHub/CSE-464---Flight-Pages/Flight464/WebContent/ShoppingCart.jsp" title="ShoppingCart.jsp" tooltip="Flight464/WebContent/ShoppingCart.jsp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Flight464/WebContent/ShoppingCart.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2357" selectionTopPixel="1215"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2249" selectionTopPixel="897"/>
 </editor>
 </editors>
 <views>
@@ -125,8 +100,7 @@
 </view>
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" partName="Snippets">
 <viewState>
-<entry expansion="false" extent="20" maximum="100" minimum="0" pinned="false" value="0">
-<entry selection="0"/>
+<entry expansion="false" extent="20" maximum="100" minimum="0" pinned="false" value="0">&#x0A;<entry selection="0"/>
 <entry selection="0"/>
 <entry selection="0"/>
 <entry selection="0"/>
@@ -145,8 +119,8 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
+<category IMemento.internal.id="Warnings (8 items)"/>
 <category IMemento.internal.id="Warnings"/>
-<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="154" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="667"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -212,7 +186,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
+<perspectives activePart="org.eclipse.ui.browser.editor" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -307,7 +281,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.19427711" ratioLeft="258" ratioRight="1070" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.7516129" ratioLeft="466" ratioRight="154" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottomRight" ratio="0.7564516" ratioLeft="469" ratioRight="151" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.AllMarkersView" label="Markers"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
@@ -550,130 +524,13 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Flight464/WebContent/WEB-INF/ConfirmBooking.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Flight464/WebContent/Login.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Flight464/src/flight/servlet/ShoppingCart.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Flight464/WebContent/WEB-INF/ViewAndBook.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Flight464/WebContent/WEB-INF/Transaction.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Flight464/WebContent/WEB-INF/TransactionConfirmation.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Flight464/WebContent/WEB-INF/LoginHelper.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Flight464/WebContent/ShoppingCart.jsp"/>
-</editors>
-<item historyLabel="ShoppingCart.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="893" y="0"/>
-</item>
-<item historyLabel="ShoppingCart.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Login.jsp" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ViewAndBook.jsp" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="982" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="3201" y="0"/>
-</item>
-<item historyLabel="Transaction.jsp" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ViewAndBook.jsp" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="2832" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="2854" y="0"/>
-</item>
-<item historyLabel="Transaction.jsp" index="4">
-<position info="not_deleted" x="3067" y="74"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="4046" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="4046" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="3201" y="0"/>
-</item>
-<item historyLabel="Transaction.jsp" index="4">
-<position info="not_deleted" x="3141" y="11"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="3019" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="2893" y="0"/>
-</item>
-<item historyLabel="Login.jsp" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="2885" y="0"/>
-</item>
-<item historyLabel="ShoppingCart.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="TransactionConfirmation.jsp" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="3796" y="0"/>
-</item>
-<item historyLabel="ViewAndBook.jsp" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="TransactionConfirmation.jsp" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="LoginHelper.jsp" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="3669" y="0"/>
-</item>
-<item historyLabel="ShoppingCart.jsp" index="7">
-<position info="not_deleted" x="2357" y="0"/>
-</item>
-<item historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="3806" y="0"/>
-</item>
-<item historyLabel="TransactionConfirmation.jsp" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ViewAndBook.jsp" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="TransactionConfirmation.jsp" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ShoppingCart.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item active="true" historyLabel="ConfirmBooking.jsp" index="0">
-<position info="not_deleted" x="3806" y="0"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="topLeft"/>
-</trimArea>
 <trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
 <trimItem IMemento.internal.id="topRight"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
@@ -691,23 +548,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="ShoppingCart.jsp" tooltip="Flight464/WebContent/ShoppingCart.jsp">
 <persistable path="/Flight464/WebContent/ShoppingCart.jsp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="LoginHelper.jsp" tooltip="Flight464/WebContent/WEB-INF/LoginHelper.jsp">
-<persistable path="/Flight464/WebContent/WEB-INF/LoginHelper.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="TransactionConfirmation.jsp" tooltip="Flight464/WebContent/WEB-INF/TransactionConfirmation.jsp">
-<persistable path="/Flight464/WebContent/WEB-INF/TransactionConfirmation.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="Transaction.jsp" tooltip="Flight464/WebContent/WEB-INF/Transaction.jsp">
-<persistable path="/Flight464/WebContent/WEB-INF/Transaction.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="ViewAndBook.jsp" tooltip="Flight464/WebContent/WEB-INF/ViewAndBook.jsp">
-<persistable path="/Flight464/WebContent/WEB-INF/ViewAndBook.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ShoppingCart.java" tooltip="Flight464/src/flight/servlet/ShoppingCart.java">
-<persistable path="/Flight464/src/flight/servlet/ShoppingCart.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ViewAndBook.java" tooltip="Flight464/src/flight/servlet/ViewAndBook.java">
-<persistable path="/Flight464/src/flight/servlet/ViewAndBook.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="FlightSearch.jsp" tooltip="Flight464/WebContent/FlightSearch.jsp">
+<persistable path="/Flight464/WebContent/FlightSearch.jsp"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="Login.jsp" tooltip="Flight464/WebContent/Login.jsp">
 <persistable path="/Flight464/WebContent/Login.jsp"/>
@@ -715,11 +557,17 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Login.java" tooltip="Flight464/src/flight/servlet/Login.java">
 <persistable path="/Flight464/src/flight/servlet/Login.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="FlightSearchResults.jsp" tooltip="Flight464/WebContent/WEB-INF/FlightSearchResults.jsp">
-<persistable path="/Flight464/WebContent/WEB-INF/FlightSearchResults.jsp"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DBCredentials.java" tooltip="Bank/src/bank/data/DBCredentials.java">
+<persistable path="/Bank/src/bank/data/DBCredentials.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="FlightSearch.jsp" tooltip="Flight464/WebContent/FlightSearch.jsp">
-<persistable path="/Flight464/WebContent/FlightSearch.jsp"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FlightRecord.java" tooltip="Flight464/src/flight/bizlogic/FlightRecord.java">
+<persistable path="/Flight464/src/flight/bizlogic/FlightRecord.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ViewAndBook.java" tooltip="Flight464/src/flight/servlet/ViewAndBook.java">
+<persistable path="/Flight464/src/flight/servlet/ViewAndBook.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="BookingHistory.jsp" tooltip="Flight464/WebContent/BookingHistory.jsp">
+<persistable path="/Flight464/WebContent/BookingHistory.jsp"/>
 </file>
 </mruList>
 </workbench>

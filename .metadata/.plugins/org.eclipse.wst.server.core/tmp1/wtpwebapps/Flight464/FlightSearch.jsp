@@ -28,12 +28,12 @@
 		<form action='FlightSearchQuery' method=post>
 			<table width=600>
 				<tr>
-					<TD>Flight Source:</td><td> <input type="text" name="sSource" value="ATL"></TD>
-					<td>Flight Destination:</td><td>  <input type="text" name="sDestination" value="ANC"></td>
+					<TD>Flight Source:</td><td> <input type="text" name="sSource" value=""></TD>
+					<td>Flight Destination:</td><td>  <input type="text" name="sDestination" value=""></td>
 				</tr>
 				<tr>
-					<td>Date of travel (MM/DD/YYYY): </td><td> <input type="text" name="sDateStart" value="09/30/2014"></td>
-					<td>Number of Seats: </td><td> <input type="text" name="nSeats" value="1"></td>
+					<td>Date of travel (MM/DD/YYYY): </td><td> <input type="text" name="sDateStart" value=""></td>
+					<td>Number of Seats: </td><td> <input type="text" name="nSeats" value=""></td>
 				</tr>
 				<tr>
 					<td>Class:</td>

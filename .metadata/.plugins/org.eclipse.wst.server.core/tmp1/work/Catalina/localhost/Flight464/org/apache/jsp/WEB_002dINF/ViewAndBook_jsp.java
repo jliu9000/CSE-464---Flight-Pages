@@ -211,7 +211,7 @@ public final class ViewAndBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t<input type=\"hidden\" name=\"nFlightId\" value='");
       out.write(org.apache.jasper.runtime.JspRuntimeLibrary.toString((((flight.bizlogic.FlightRecord)_jspx_page_context.findAttribute("SelectedFlight")).getnID())));
       out.write("'>\r\n");
-      out.write("\t\t\t\t<button type=\"button\" onclick=\"addToShoppingCart()\" style=\"font-weight:bold;\">Add to Cart</button>\r\n");
+      out.write("\t\t\t\t<button type=\"button\" id=\"addToCart\" onclick=\"addToShoppingCart()\" style=\"font-weight:bold;\">Add to Cart</button>\r\n");
       out.write("\t\t</td>\r\n");
       out.write("\t\t<td><button type=button onclick=\"goHome()\">Home</button></td></tr>\r\n");
       out.write("\t\t</table>\t\t\r\n");
@@ -234,12 +234,14 @@ public final class ViewAndBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\tfunction addToShoppingCart(){\r\n");
       out.write("\t\t\r\n");
       out.write("\t\tvar sNumSeats = \"sSelectedNumSeats=\" + $( \"#SelectedSeats option:selected\" ).text();\r\n");
+      out.write("\t\t$(\"#addToCart\").prop(\"disabled\",true);\r\n");
+      out.write("\r\n");
       out.write("\t\t$.ajax({\r\n");
       out.write("\t\t\ttype: \"POST\",  \r\n");
       out.write("\t\t\turl: \"ShoppingCart\",\r\n");
       out.write("\t\t\tdata: sNumSeats,\r\n");
       out.write("\t\t\tsuccess: function(){\r\n");
-      out.write("\t\t\t\talert(\"succesfully added flight to your cart!\");\r\n");
+      out.write("\t\t\t\talert(\"Successfully added flight to your cart!\");\r\n");
       out.write("\t\t\t}\r\n");
       out.write("\t\t\t})\r\n");
       out.write("\t\t\r\n");

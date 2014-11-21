@@ -31,7 +31,7 @@
 		
 		<br><br>
 		<p class="PageTitle">Shopping Cart</p>
-		<p class="subheading"><b><%=nTotalRecords %></b> Results Found</p>
+		<p class="subheading"><b><%=nTotalRecords %></b> Items in Cart</p>
 		
 		<div class='ErrorMessage'><%=sMessage %></div>
 		<table>
@@ -77,14 +77,16 @@
 		<br><br>
 		<form action='ViewAndBook' method=post>
 		<input type="hidden" value="true" name="submit" />
+		<% if (sMessage.equals("")){ %>
 		<input type="submit" value="Checkout" style="font-weight:bold;"></input>
+		<%} %>
 		</form>
 	</div>	
 </body>
 <script>
-	function SelectedChanged(SelectTag){
+	//function SelectedChanged(SelectTag){
 		//alert(SelectTag);
-	}
+	//}
 	
 	
 	$('Select').change(function () {
@@ -101,7 +103,6 @@
 				})
 	     
 	     
-	     alert(name);
 	 });
 	
 </script>
