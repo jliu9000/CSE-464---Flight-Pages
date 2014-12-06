@@ -36,6 +36,18 @@
 					<td><input type="text" id="txtUserName" name="UserName"></td>
 				</tr>
 				<tr>
+					<td align="right">Full Name:</td>
+					<td><input type="text" id="txtFullName" name="FullName"></td>
+				</tr>
+				<tr>
+					<td align="right">Organization:</td>
+					<td><input type="text" id="txtOrganization" name="Organization"></td>
+				</tr>
+				<tr>
+					<td align="right">Address:</td>
+					<td><input type="text" id="txtAddress" name="Address"></td>
+				</tr>
+				<tr>
 					<td align="right">Password:</td>
 					<td><input type="password" id="txtPassword" name="Password"></td>
 				</tr>

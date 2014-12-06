@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import flight.bizlogic.Clients;
+import flight.bizlogic.Organizations;
 import flight.bizlogic.User;
 import flight.bizlogic.Users;
 import flight.bizlogic.Users;
@@ -31,6 +33,7 @@ public class Login extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -52,7 +55,24 @@ public class Login extends HttpServlet {
 				String sMessage;
 				
 				
-				DbData dbData = new DbData();
+				User oUser  = new User(sUserName);				
+				Organizations oOrg = new Organizations(sUserName);
+				Clients oClient = new Clients(oUser,oOrg);
+
+				System.out.println("fullname: "+ oUser.getsFullName());
+				if (oUser.VerifyPassword(sPassword)){
+					System.out.println("debugging");
+					request.getSession().setAttribute("Clients", oClient);
+					response.sendRedirect("FlightSearch.jsp");
+				}else{
+					sMessage = "Invalid Login or Password";
+					
+					request.setAttribute("sMessage", sMessage);
+					request.getRequestDispatcher("Login.jsp").forward(request,response);
+				}
+				
+				
+				/*DbData dbData = new DbData();
 				String sReturnPass = null;
 				
 				try {
@@ -73,6 +93,7 @@ public class Login extends HttpServlet {
 					
 					if(sHassPass.equals(sReturnPass)){
 						User user = new User();
+	
 						try {
 							user.setnUserId(dbData.getUserId(sUserName));
 						} catch (SQLException e) {
@@ -88,7 +109,7 @@ public class Login extends HttpServlet {
 						request.getRequestDispatcher("Login.jsp").forward(request,response);
 					}
 					
-				}
+				}*/
 				
 				
 				

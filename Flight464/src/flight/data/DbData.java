@@ -69,16 +69,16 @@ public class DbData {
 				//System.out.println(a.getClass());
 				if (a.getClass() == String.class){
 					ps.setString(i, (String)a);
-					System.out.println(String.format("I'm a String!  %d - %s", i, (String) a));
+					//System.out.println(String.format("I'm a String!  %d - %s", i, (String) a));
 				}else if(a.getClass() == Integer.class){
 					ps.setInt(i, (Integer)a);
-					System.out.println(String.format("I'm an Integer!  %d - %d", i, (Integer) a));
+					//System.out.println(String.format("I'm an Integer!  %d - %d", i, (Integer) a));
 				}else if(a.getClass() == Double.class){
 					ps.setDouble(i, (Double)a);
-					System.out.println(String.format("I'm a Double!  %d - %f", i, (Double) a));
+					//System.out.println(String.format("I'm a Double!  %d - %f", i, (Double) a));
 				}else if (a.getClass() == Timestamp.class){
 					ps.setTimestamp(i, (Timestamp)a);
-					System.out.println(String.format("I'm a DateTime!  %d - %s", i, a.toString()));
+					//System.out.println(String.format("I'm a DateTime!  %d - %s", i, a.toString()));
 				}
 				i++;
 			}
@@ -166,10 +166,10 @@ public class DbData {
 	public String getUserCredentials(String sUsername) throws SQLException{
 		
 		
-		ArrayList<Object> param =  new ArrayList<Object>();
+		ArrayList<Object> param = new ArrayList<Object>();
 		param.add(sUsername);
 		String sUsernamePass;
-			
+		
 		ResultSet rs1 = queryDB("SELECT * FROM khanish.Users Where email=?",param);
 		
 		if (rs1 != null){
@@ -182,19 +182,22 @@ public class DbData {
 	}
 	
 	
-	public boolean addUser(String sUserName, int sPassword) throws SQLException{
+	public boolean addUser(String sUserName, int sPassword,String fullname) throws SQLException{
 		
 		
 		ArrayList<Object> param =  new ArrayList<Object>();
 		param.add(sUserName);
 		param.add(sPassword);
+		param.add(fullname);
 		//System.out.println(sUserName + sPassword);
-		int rs = updateDB("Insert INTO khanish.Users (email,password) VALUES (?,?)",param);
+		int rs = updateDB("Insert INTO khanish.Users (email,password,fullname) VALUES (?,?,?)",param);
 		
 		//System.out.println("What #rows returned by the RS1 in insert: " + rs);
 		conn.close();
 		return true;
 	}
+	
+	
 	
 	public List<FlightRecord> searchFlights(String sSource,String sDestination, String sDateStart, int nNumSeats,String sClass) throws SQLException{
 		List<FlightRecord> lReturnResults = new ArrayList<FlightRecord>();
@@ -410,7 +413,7 @@ public class DbData {
 		return al;
 	}
 	
-	public int getUserId (String UserName) throws SQLException{
+	public String getUserIdandFullName (String UserName) throws SQLException{
 		ArrayList<Object> param =  new ArrayList<Object>();
 		String queryString = "SELECT * FROM khanish.Users WHERE email = ?"; 
 		param.add(UserName);
@@ -419,11 +422,41 @@ public class DbData {
 		if (rs != null){
 			while (rs.next()){
 				
-				return rs.getInt("userId");
+				return (rs.getInt("userId")+","+rs.getString("FullName"));
 			}
 		}		
 		//System.out.println("num rows returned: " + lReturnResults.size());
-		return 0;
+		return null;
 	}
-
+	public String getOrganizationDetails(String UserName) throws SQLException{
+		ArrayList<Object> param =  new ArrayList<Object>();
+		String queryString = "SELECT * FROM khanish.Users WHERE email = ?"; 
+		String sReturnString;
+		param.add(UserName);
+		
+		ResultSet rs = queryDB(queryString,param);
+		if (rs != null){
+			while (rs.next()){
+			
+				return (rs.getString("Org") + ","+rs.getString("Address"));
+			}
+		}
+		//System.out.println("num rows returned: " + lReturnResults.size());
+		return null;
+	}
+public boolean updateOrganization(String orgName, String address,String username) throws SQLException{
+		
+		
+		ArrayList<Object> param =  new ArrayList<Object>();
+		param.add(orgName);
+		param.add(address);
+		param.add(username);
+		//System.out.println(sUserName + sPassword);
+		System.out.println("inside getting the org details:: " + orgName  + address);
+		int rs = updateDB("UPDATE khanish.Users SET Org=?,Address=? WHERE email = ?",param);
+		
+		//System.out.println("What #rows returned by the RS1 in insert: " + rs);
+		conn.close();
+		return true;
+	}
 }

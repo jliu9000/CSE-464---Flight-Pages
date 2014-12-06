@@ -1,6 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="CSS/FlightStyles.css">
 
@@ -12,7 +13,7 @@
 
 
 
-<jsp:useBean id="User" class="flight.bizlogic.User" scope="session" /> 
+<jsp:useBean id="Clients" class="flight.bizlogic.Clients" scope="session" /> 
 
 <body>
 
@@ -28,7 +29,9 @@
 			</li>
 			<li> </li>
 			<li> </li>
-			<li>Welcome, <jsp:getProperty name="User" property="username" />!</li>
+			<li>Welcome, <c:out value="${sessionScope.Clients.oUser.sFullName}"/>!</li>
+			<li> </li>
+			<li>Orginization: <c:out value="${sessionScope.Clients.oOrg.sName}"/>!</li>
 			<li> </li>
 			<li> </li>
 			<li><a href="./FlightSearch.jsp">Home</a></li>

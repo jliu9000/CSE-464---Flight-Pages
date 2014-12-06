@@ -1,11 +1,64 @@
 package flight.bizlogic;
 
+import java.sql.SQLException;
+
+import flight.data.DbData;
+
 public class User {
 	private String username;
 	private int nUserId;
+	private String sHashedPass;
+	private String sFullName;
 	
+	DbData dbData = new DbData();
 	
+	public User(){}
+	public User(String sUserName){
+		username = sUserName;
+		try {
+			sHashedPass = dbData.getUserCredentials(sUserName);
+		} catch (SQLException e1) {
+			
+			//e1.printStackTrace();
+		}
+		
+		try {
+			String[] temp = dbData.getUserIdandFullName(sUserName).split(",");
+			nUserId = Integer.parseInt(temp[0]);
+			sFullName = temp[1];
+		} catch (SQLException e) {
+			System.out.println("errors");
+			//e.printStackTrace();
+		}
+	}
 	
+	public boolean VerifyPassword(String sPasswordUnHashed){
+		boolean bVerified = false;
+		
+		int hashPass = sPasswordUnHashed.hashCode();
+		String sHassPass = String.valueOf(hashPass);
+		
+		if(sHassPass.equals(sHashedPass)){
+			bVerified= true;
+			
+		}
+		
+		return bVerified;
+	}
+
+	public boolean addUser(String username, int password, String fullname){
+		try {
+			dbData.addUser(username, password, fullname);
+			this.username = username;
+			sHashedPass = String.valueOf(password);
+			sFullName = fullname;
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			return false;
+		}
+	} 
 	
 	
 	
@@ -20,6 +73,12 @@ public class User {
 	}
 	public void setnUserId(int nUserId) {
 		this.nUserId = nUserId;
+	}
+	public String getsFullName() {
+		return sFullName;
+	}
+	public void setsFullName(String sFullName) {
+		this.sFullName = sFullName;
 	}
 	
 	

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import flight.bizlogic.Organizations;
+import flight.bizlogic.User;
 import flight.bizlogic.Users;
 import flight.data.DbData;
 
@@ -43,13 +45,30 @@ public class Registration extends HttpServlet {
 		// TODO Auto-generated method stub
 		String sUserName = request.getParameter("UserName");
 		String sPassword = request.getParameter("Password");
+		String sFullName = request.getParameter("FullName");
+		String sOrganization = request.getParameter("Organization");
+		String sAddress = request.getParameter("Address");
+		
 		
 		String sMessage;
-	
 		
-		DbData dbData = new DbData();
-		String sReturnPass = null;
-		try {
+		User oUser = new User(sUserName);
+		boolean userAdded = oUser.addUser(sUserName, sPassword.hashCode(), sFullName);
+		
+		Organizations oOrg = new Organizations(sUserName);
+		boolean orgAdded = oOrg.addOrgInfo(sOrganization,sAddress);
+		
+		if (userAdded && orgAdded){
+			sMessage = "User Added Successfully";
+		}else if(userAdded){
+			sMessage = "User added: Org Data not updated!";
+		}else{
+			sMessage = "User Already Exists";
+		}
+		
+		request.setAttribute("sMessage", sMessage);
+		request.getRequestDispatcher("Login.jsp").forward(request,response);
+		/*try {
 			sReturnPass = dbData.getUserCredentials(sUserName);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -59,7 +78,7 @@ public class Registration extends HttpServlet {
 		if (sReturnPass == null){
 			try {
 
-				dbData.addUser(sUserName, sPassword.hashCode());
+				dbData.addUser(sUserName, sPassword.hashCode(),"","");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				sMessage = "Username Already Exists";
@@ -70,9 +89,8 @@ public class Registration extends HttpServlet {
 			sMessage = "User Already Exists";
 			System.out.println("user already exists");
 		}
+		*/
 		
-		request.setAttribute("sMessage", sMessage);
-		request.getRequestDispatcher("Login.jsp").forward(request,response);
-	}
+	}	
 
 }
