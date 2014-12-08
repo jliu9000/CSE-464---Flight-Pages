@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import flight.bizlogic.Clients;
 import flight.bizlogic.FlightRecord;
 import flight.bizlogic.User;
 import flight.data.DbData;
@@ -37,14 +39,17 @@ public class BookingHistory extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user = (User) request.getSession().getAttribute("User");
+		String sMessage = "";
+
+		Clients clients = (Clients) request.getSession().getAttribute("Clients");
+		User user = clients.getoUser();
+				
 		DbData oData = new DbData();
 		ArrayList<FlightRecord> al = new ArrayList<FlightRecord>();
-		String sMessage = "";
 		
 		if (user == null){
 			sMessage = "No user logged in, please log in first<BR>";
-			request.getRequestDispatcher("./Login.jsp").forward(request,response);
+			request.getRequestDispatcher(response.encodeURL("./Login.jsp")).forward(request,response);
 		}
 		
 		try {
@@ -58,10 +63,10 @@ public class BookingHistory extends HttpServlet {
 		if (sMessage.equals("")) {
 			request.setAttribute("alBookings", al);
 			request.getSession().setAttribute("alBooking", al);
-			response.sendRedirect("./BookingHistory.jsp");
+			response.sendRedirect(response.encodeURL("./BookingHistory.jsp"));
 		}else{
 			request.setAttribute("sMessage",sMessage);
-			request.getRequestDispatcher("./BookingHistory.jsp");
+			request.getRequestDispatcher(response.encodeURL("./BookingHistory.jsp"));
 		}
 		
 		

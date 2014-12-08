@@ -63,12 +63,12 @@ public class Login extends HttpServlet {
 				if (oUser.VerifyPassword(sPassword)){
 					System.out.println("debugging");
 					request.getSession().setAttribute("Clients", oClient);
-					response.sendRedirect("FlightSearch.jsp");
+					response.sendRedirect(response.encodeURL("FlightSearch.jsp"));
 				}else{
 					sMessage = "Invalid Login or Password";
 					
 					request.setAttribute("sMessage", sMessage);
-					request.getRequestDispatcher("Login.jsp").forward(request,response);
+					request.getRequestDispatcher(response.encodeURL("Login.jsp")).forward(request,response);
 				}
 				
 				

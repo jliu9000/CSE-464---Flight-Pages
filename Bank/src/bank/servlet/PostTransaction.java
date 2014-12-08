@@ -41,6 +41,7 @@ public class PostTransaction extends HttpServlet {
 		//input param
 		int nAccountNumber;
 		int nRoutingNumber;
+		int nPin = -1;
 		double dCost;
 		
 		nAccountNumber = Integer.parseInt(request.getParameter("nAccountNumber"));
@@ -48,9 +49,15 @@ public class PostTransaction extends HttpServlet {
 		dCost = Double.parseDouble(request.getParameter("dCost"));
 		
 		try{
-			bSuccess = oBank.completeTransaction(nAccountNumber, nRoutingNumber, dCost);
+			nPin = Integer.parseInt(request.getParameter("nPin"));
 		} catch (Exception ex){
-			ex.printStackTrace();
+			sMessage = "Invalid pin for this request <BR> ";
+		}
+		
+		try{
+			bSuccess = oBank.completeTransaction(nAccountNumber, nRoutingNumber, nPin, dCost);
+		} catch (Exception ex){
+			//ex.printStackTrace();
 			sMessage = "Internal Error:  We are unable to process your bank transaction, please try again later";
 		}
 		

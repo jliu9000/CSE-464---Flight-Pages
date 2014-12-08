@@ -23,12 +23,17 @@ public class User {
 		}
 		
 		try {
-			String[] temp = dbData.getUserIdandFullName(sUserName).split(",");
-			nUserId = Integer.parseInt(temp[0]);
-			sFullName = temp[1];
+			String t = dbData.getUserIdandFullName(sUserName);
+			if (t != null){
+				String[] temp = t.split(",");
+				nUserId = Integer.parseInt(temp[0]);
+				sFullName = temp[1];
+			}
 		} catch (SQLException e) {
 			System.out.println("errors");
 			//e.printStackTrace();
+			sFullName = "";
+			nUserId = -1;
 		}
 	}
 	
@@ -38,7 +43,7 @@ public class User {
 		int hashPass = sPasswordUnHashed.hashCode();
 		String sHassPass = String.valueOf(hashPass);
 		
-		if(sHassPass.equals(sHashedPass)){
+		if(sHashedPass != null && sHassPass.equals(sHashedPass)){
 			bVerified= true;
 			
 		}

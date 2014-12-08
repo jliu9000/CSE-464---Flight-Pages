@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./CSS/FlightStyles.css">
+
+<title>Internet Systems Homework 2</title>
+
+</head>
+
+
+<body>
+	
+	
+	<div class='main'>
+		<p class='PageTitle'>Login</p>
+		
+		<div class='ErrorMessage'><c:out value="${sMessage}" escapeXml="false"/></div>
+		
+	 	<form action="Login" method=post>
+			<table class="center">
+
+				<tr>
+					<td align="right" >Username:</td>
+					<td><input type="text" id="inputUserName" name="Username"></td>
+				</tr>
+				<tr>
+					<td align="right">Password:</td>
+					<td><input type="password" id="inputPassword" name="Password"></td>
+				</tr>
+				<tr>
+					<td align="right"><input type="submit" name="btnSubmitButton" value="Submit"/></td>
+					<td align="left"><a href="./Registration.jsp" style="color:blue">Register New User</a>
+				</tr>
+			
+			</table>
+		</form>
+	
+	</div>
+</body>
+</html>

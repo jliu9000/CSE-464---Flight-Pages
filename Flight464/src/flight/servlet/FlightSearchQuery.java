@@ -85,11 +85,11 @@ public class FlightSearchQuery extends HttpServlet {
 				request.setAttribute("sMessage", sMessage);
 			}
 			request.setAttribute("lSearchResults", alRecords);
-			request.getRequestDispatcher("WEB-INF/FlightSearchResults.jsp").forward(request,response);
+			request.getRequestDispatcher(response.encodeURL("WEB-INF/FlightSearchResults.jsp")).forward(request,response);
 
 		} else {
 			request.setAttribute("sMessage", sMessage);	
-			request.getRequestDispatcher("FlightSearch.jsp").forward(request,response);
+			request.getRequestDispatcher(response.encodeURL("FlightSearch.jsp")).forward(request,response);
 
 		}
 	

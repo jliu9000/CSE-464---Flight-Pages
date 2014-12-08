@@ -14,9 +14,13 @@ public class Organizations {
 		this.sUserName = sUserName;
 		String[] temp;
 		try {
-			temp = dbData.getOrganizationDetails(sUserName).split(",");
-			sName = temp[0];
-			sAddress = temp[1];
+			String t = dbData.getOrganizationDetails(sUserName);
+			if (t != null){
+				temp = dbData.getOrganizationDetails(sUserName).split(",");
+				sName = temp[0];
+				sAddress = temp[1];
+			}
+
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

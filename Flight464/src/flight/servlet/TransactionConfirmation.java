@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import flight.bizlogic.Clients;
 import flight.bizlogic.FlightRecord;
 import flight.bizlogic.User;
 import flight.bizlogic.UserTransaction;
@@ -49,8 +50,9 @@ public class TransactionConfirmation extends HttpServlet {
 		if (alRecords == null){
 			sMessage = "No flights selected in your shopping cart, please try again";
 		}
-		
-		User user = (User) request.getSession().getAttribute("User");
+		Clients clients = (Clients) request.getSession().getAttribute("Clients");
+		User user = clients.getoUser();
+
 		if (user == null){
 			//shouldn't get here... right?
 			request.setAttribute("sMessage", "Please login first before attempting to select a site");

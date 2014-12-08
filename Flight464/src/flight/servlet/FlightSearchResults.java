@@ -93,11 +93,11 @@ public class FlightSearchResults extends HttpServlet {
 			session.setAttribute("RequestedFlight", fr);
 			
 			request.setAttribute("nAvailableSeats", fr.getnSeats());
-			RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/ViewAndBook.jsp");
+			RequestDispatcher rq = request.getRequestDispatcher(response.encodeURL("WEB-INF/ViewAndBook.jsp"));
 			rq.forward(request, response);
 		} else {
 			request.setAttribute("sMessage", sMessage);
-			request.getRequestDispatcher("WEB-INF/FlightSearchResults.jsp").forward(request,response);
+			request.getRequestDispatcher(response.encodeURL("WEB-INF/FlightSearchResults.jsp")).forward(request,response);
 		}
 	}
 

@@ -162,10 +162,10 @@ public class DBBank {
 	}
 	
 	
-	public boolean completeTransaction(int nAccountId, int nRoutingNumber, double dCost) throws SQLException{
+	public boolean completeTransaction(int nAccountId, int nRoutingNumber, int nPin, double dCost) throws SQLException{
 		double dCurrentBalance = 0;
 		double dRemainingBalance = 0; 
-		
+		int pin = -1;
 		ArrayList<Object> param =  new ArrayList<Object>();
 		param.add(nAccountId);
 		param.add(nRoutingNumber);
@@ -178,8 +178,17 @@ public class DBBank {
 			while (rs.next()){
 				
 				dCurrentBalance=rs.getDouble("Balance");
-				System.out.println(dCurrentBalance);
+				try{
+					pin = rs.getInt("Pin");
+				} catch (Exception ex){
+					return false;
+				}
+
 			}
+		}
+		
+		if (nPin < 1 || pin != nPin){
+			return false;
 		}
 		
 		dRemainingBalance = dCurrentBalance - dCost;

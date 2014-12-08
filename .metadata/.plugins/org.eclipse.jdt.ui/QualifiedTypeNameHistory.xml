@@ -11,4 +11,5 @@
 <fullyQualifiedTypeName name="flight.bizlogic.User"/>
 <fullyQualifiedTypeName name="bank.data.DBBank"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="flight.bizlogic.Clients"/>
 </qualifiedTypeNameHistroy>

@@ -78,11 +78,11 @@ public class ViewAndBook extends HttpServlet {
 		//forward request
 		if (sMessage.equals("")){
 			request.setAttribute("dTotalCost", dTotalCost);
-			request.getRequestDispatcher("/WEB-INF/ConfirmBooking.jsp").forward(request,response);
+			request.getRequestDispatcher(response.encodeURL("/WEB-INF/ConfirmBooking.jsp")).forward(request,response);
 			
 		} else {
 			request.setAttribute("sMessage", sMessage);
-			request.getRequestDispatcher("./ShoppingCarts.jsp").forward(request, response);
+			request.getRequestDispatcher(response.encodeURL("./ShoppingCart.jsp")).forward(request, response);
 		}
 
 	
